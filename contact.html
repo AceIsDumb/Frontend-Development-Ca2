@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — Location &amp; Contact</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+    <!-- hamburger icon, sits where the nav menu should open from.
+         no click logic yet, just the markup/placement for now -->
+    <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+      <span class="block h-0.5 w-7 bg-stone"></span>
+      <span class="block h-0.5 w-5 bg-stone"></span>
+      <span class="block h-0.5 w-7 bg-stone"></span>
+    </button>
+    <a href="#" class="btn-primary">Book Now</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- page header banner, same hero treatment as every other page,
+       just shorter than the homepage one -->
+  <section class="relative h-72 flex items-end">
+    <div class="img-placeholder absolute inset-0">page banner photo — hero-contact.jpg</div>
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
+      <p class="eyebrow text-cream/70 mb-3">get in touch</p>
+      <h1 class="font-serif text-cream text-4xl">location &amp; contact</h1>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-8 py-20">
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- map, this is a static graphic, no actual map api -->
+      <div class="img-placeholder h-96">map graphic — map-contact.jpg</div>
+
+      <!-- contact form -->
+      <div>
+        <h2 class="heading-lg mb-2">say hello</h2>
+        <p class="text-stone text-sm mb-8">questions about a stay, or just want directions? send us a note and we'll get back within a day.</p>
+
+        <form id="contact-form" class="space-y-5" novalidate>
+          <div>
+            <label class="field-label" for="name">full name</label>
+            <input class="field-input" type="text" id="name" name="name">
+            <p class="field-error-msg">please enter your name.</p>
+          </div>
+          <div>
+            <label class="field-label" for="email">email</label>
+            <input class="field-input" type="email" id="email" name="email">
+            <p class="field-error-msg">please enter a valid email.</p>
+          </div>
+          <div>
+            <label class="field-label" for="message">message</label>
+            <textarea class="field-input" id="message" name="message" rows="4"></textarea>
+            <p class="field-error-msg">please write a short message.</p>
+          </div>
+          <button type="submit" class="btn-primary">send message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- other branches -->
+    <div class="mt-20">
+      <p class="eyebrow mb-3">other locations</p>
+      <h2 class="heading-lg mb-8">our other branches</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-surface border border-border rounded-xl px-5 py-4">
+          <p class="heading-md text-base mb-1">branch name</p>
+          <p class="text-stone text-sm">address line, city</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl px-5 py-4">
+          <p class="heading-md text-base mb-1">branch name</p>
+          <p class="text-stone text-sm">address line, city</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl px-5 py-4">
+          <p class="heading-md text-base mb-1">branch name</p>
+          <p class="text-stone text-sm">address line, city</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cream">about us</a></li>
+        <li><a href="#" class="hover:text-cream">reviews</a></li>
+        <li><a href="#" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+<script src="js/contact.js"></script>
+</body>
+</html>
