@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — About Us</title>
+
+<!-- tailwind cdn + our shared config, in that order -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+
+<!-- our shared stylesheet, has fonts + button/heading classes -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="booking.html" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now.
+           ids + aria are here so the js can be dropped in later -->
+      <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
+              class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- slide-out nav drawer, built from the nav wireframe: opens from the
+     right, current page highlighted, book now pinned at the bottom.
+     starts hidden. no open/close js yet — to preview it, delete the
+     word "hidden" from both #nav-backdrop and #nav-drawer below.
+     TODO (js): #nav-open shows both, #nav-close and #nav-backdrop hide
+     both, and flip aria-expanded on #nav-open -->
+<div id="nav-backdrop" class="hidden fixed inset-0 bg-navy/50 z-40"></div>
+
+<aside id="nav-drawer" class="hidden fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-border">
+    <p class="font-serif text-xl text-navy">Menu</p>
+    <button id="nav-close" aria-label="close menu" class="text-2xl leading-none text-stone hover:text-navy">&times;</button>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto py-3">
+    <ul class="text-sm">
+      <li><a href="index.html" class="block px-6 py-3 hover:bg-surfacealt">home</a></li>
+      <!-- current page gets the navytint highlight, same as the
+           wireframe. move aria-current + these two classes onto
+           whichever page you're on -->
+      <li><a href="about.html" aria-current="page" class="block px-6 py-3 bg-navytint text-navy font-medium">about us</a></li>
+      <li><a href="rooms.html" class="block px-6 py-3 hover:bg-surfacealt">rooms &amp; suites</a></li>
+      <li><a href="room-details.html" class="block px-6 py-3 hover:bg-surfacealt">room detail</a></li>
+      <li><a href="amenities.html" class="block px-6 py-3 hover:bg-surfacealt">amenities</a></li>
+      <li><a href="gallery.html" class="block px-6 py-3 hover:bg-surfacealt">gallery</a></li>
+      <li><a href="booking.html" class="block px-6 py-3 hover:bg-surfacealt">booking</a></li>
+      <li><a href="offers.html" class="block px-6 py-3 hover:bg-surfacealt">offers</a></li>
+      <li><a href="reviews.html" class="block px-6 py-3 hover:bg-surfacealt">reviews</a></li>
+      <li><a href="faq.html" class="block px-6 py-3 hover:bg-surfacealt">faq</a></li>
+      <li><a href="contact.html" class="block px-6 py-3 hover:bg-surfacealt">location / contact</a></li>
+      <li><a href="things-to-do.html" class="block px-6 py-3 hover:bg-surfacealt">things to do</a></li>
+    </ul>
+  </nav>
+
+  <div class="px-6 py-5 border-t border-border">
+    <a href="booking.html" class="btn-primary w-full">Book Now</a>
+  </div>
+</aside>
+
+<main>
+
+  <!-- no hero banner on this page — the wireframe goes straight from the
+       header into "our story", same as booking.html does -->
+  <section class="max-w-7xl mx-auto px-8 py-20 space-y-20">
+
+    <!-- our story: photo on the left, text on the right -->
+    <div>
+      <p class="eyebrow mb-3">about us</p>
+      <h1 class="heading-lg mb-10">our story</h1>
+
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="img-placeholder h-80">founders photo — about-founders.jpg</div>
+
+        <div class="space-y-4">
+          <p class="text-stone text-sm leading-relaxed">the hotel opened in 1998 with eleven rooms, one shared kitchen, and a founding pair who had spent years working in other people's hotels and taking notes on what they would do differently.</p>
+          <p class="text-stone text-sm leading-relaxed">what they wanted was simple and surprisingly rare: a place where the staff knew your name by the second morning, where nothing in the room needed a manual, and where the quiet was treated as a feature rather than an accident.</p>
+          <p class="text-stone text-sm leading-relaxed">twenty-eight years later we have grown to sixty-four rooms across two buildings, and the founding pair still walk the floor most mornings. the notebook is still in use.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- mission / vision / values, 3-box layout from the wireframe -->
+    <div>
+      <p class="eyebrow mb-3">what guides us</p>
+      <h2 class="heading-lg mb-10">mission &amp; values</h2>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <h3 class="heading-md text-base mb-2">mission</h3>
+          <p class="text-stone text-sm leading-relaxed">to give every guest a stay that asks nothing of them — a room that works the moment they walk in, and service that anticipates rather than interrupts.</p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <h3 class="heading-md text-base mb-2">vision</h3>
+          <p class="text-stone text-sm leading-relaxed">to become the hotel travellers return to by habit rather than by comparison, and to grow only at the pace at which we can keep that true.</p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <h3 class="heading-md text-base mb-2">values</h3>
+          <p class="text-stone text-sm leading-relaxed">care taken quietly, honesty in what we promise, restraint in what we add, and respect for the staff who make all of it possible.</p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-cream">about us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+</body>
+</html>
