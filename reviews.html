@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — Reviews</title>
+
+<!-- tailwind cdn + our shared config, in that order -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+
+<!-- our shared stylesheet, has fonts + button/heading classes -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="booking.html" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now.
+           ids + aria are here so the js can be dropped in later -->
+      <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
+              class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- slide-out nav drawer, built from the nav wireframe: opens from the
+     right, current page highlighted, book now pinned at the bottom.
+     starts hidden. no open/close js yet — to preview it, delete the
+     word "hidden" from both #nav-backdrop and #nav-drawer below.
+     TODO (js): #nav-open shows both, #nav-close and #nav-backdrop hide
+     both, and flip aria-expanded on #nav-open -->
+<div id="nav-backdrop" class="hidden fixed inset-0 bg-navy/50 z-40"></div>
+
+<aside id="nav-drawer" class="hidden fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-border">
+    <p class="font-serif text-xl text-navy">Menu</p>
+    <button id="nav-close" aria-label="close menu" class="text-2xl leading-none text-stone hover:text-navy">&times;</button>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto py-3">
+    <ul class="text-sm">
+      <li><a href="index.html" class="block px-6 py-3 hover:bg-surfacealt">home</a></li>
+      <li><a href="about.html" class="block px-6 py-3 hover:bg-surfacealt">about us</a></li>
+      <li><a href="rooms.html" class="block px-6 py-3 hover:bg-surfacealt">rooms &amp; suites</a></li>
+      <li><a href="room-details.html" class="block px-6 py-3 hover:bg-surfacealt">room detail</a></li>
+      <li><a href="amenities.html" class="block px-6 py-3 hover:bg-surfacealt">amenities</a></li>
+      <li><a href="gallery.html" class="block px-6 py-3 hover:bg-surfacealt">gallery</a></li>
+      <li><a href="booking.html" class="block px-6 py-3 hover:bg-surfacealt">booking</a></li>
+      <li><a href="offers.html" class="block px-6 py-3 hover:bg-surfacealt">offers</a></li>
+      <!-- current page gets the navytint highlight, same as the wireframe -->
+      <li><a href="reviews.html" aria-current="page" class="block px-6 py-3 bg-navytint text-navy font-medium">reviews</a></li>
+      <li><a href="faq.html" class="block px-6 py-3 hover:bg-surfacealt">faq</a></li>
+      <li><a href="contact.html" class="block px-6 py-3 hover:bg-surfacealt">location / contact</a></li>
+      <li><a href="things-to-do.html" class="block px-6 py-3 hover:bg-surfacealt">things to do</a></li>
+    </ul>
+  </nav>
+
+  <div class="px-6 py-5 border-t border-border">
+    <a href="booking.html" class="btn-primary w-full">Book Now</a>
+  </div>
+</aside>
+
+<main>
+
+  <!-- no hero banner on this page — the wireframe goes straight from the
+       header into the rating summary, same as booking.html does -->
+  <section class="max-w-7xl mx-auto px-8 py-20 space-y-16">
+
+    <!-- overall rating summary: score in a box on the left, counts beside it -->
+    <div>
+      <p class="eyebrow mb-3">what guests say</p>
+      <h1 class="heading-lg mb-10">reviews &amp; testimonials</h1>
+
+      <div class="flex items-center gap-6">
+        <div class="w-28 h-28 shrink-0 rounded-xl bg-navytint text-navy font-serif text-4xl flex items-center justify-center">4.7</div>
+        <div class="space-y-1.5">
+          <p class="text-navy font-medium">excellent — 4.7 out of 5</p>
+          <p class="text-stone text-sm">based on 428 verified guest reviews</p>
+          <p class="text-stone text-xs">collected over the last 12 months</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- guest testimonials. data-rating is on each card so a
+         filter-by-rating or sort script can find them later without
+         touching the markup again -->
+    <div>
+      <p class="eyebrow mb-3">in their words</p>
+      <h2 class="heading-lg mb-10">guest testimonials</h2>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <article data-rating="5" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Amara O.</p>
+              <p class="text-stone text-xs">stayed march 2026</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">the room was ready early without us asking, and someone remembered we had a train to catch. small things, but they added up to the least stressful trip we have had in years.</p>
+        </article>
+
+        <article data-rating="5" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Daniel K.</p>
+              <p class="text-stone text-xs">stayed february 2026</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">i worked from the room for four days and never once had to hunt for a plug or fight the wifi. whoever designed these rooms has actually stayed in a hotel before.</p>
+        </article>
+
+        <article data-rating="4" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Priya S.</p>
+              <p class="text-stone text-xs">stayed january 2026</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">quiet, warm, and the breakfast was better than it needed to be. the lobby gets busy around checkout, but that is the only thing i would change.</p>
+        </article>
+
+        <article data-rating="5" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Marcus L.</p>
+              <p class="text-stone text-xs">stayed december 2025</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">we came for two nights and extended to five. the staff sorted it out in about a minute and moved us to a room with the better view for the same rate.</p>
+        </article>
+
+        <article data-rating="4" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Hui Ling T.</p>
+              <p class="text-stone text-xs">stayed november 2025</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">travelling with a toddler is never restful, but the adjoining rooms made it manageable and nobody made us feel like an inconvenience.</p>
+        </article>
+
+        <article data-rating="5" class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="img-placeholder !rounded-full w-11 h-11 shrink-0 text-xs">pic</div>
+            <div>
+              <p class="text-sm font-medium text-navy">Erik H.</p>
+              <p class="text-stone text-xs">stayed october 2025</p>
+            </div>
+          </div>
+          <p class="text-stone text-sm leading-relaxed">it is genuinely quiet. i have stayed in a lot of hotels that claim that and this is the first one where i slept through the night on the first try.</p>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- awards and recognition -->
+    <div>
+      <p class="eyebrow mb-3">recognition</p>
+      <h2 class="heading-lg mb-10">awards &amp; accreditation</h2>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+        <div class="bg-surface border border-border rounded-xl p-6 space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">★</div>
+          <h3 class="heading-md text-base">guest choice award</h3>
+          <p class="text-stone text-sm leading-relaxed">awarded for maintaining a rating above 4.5 across a full year.</p>
+          <p class="text-navy text-xs font-medium">2024, 2025, 2026</p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-xl p-6 space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">4</div>
+          <h3 class="heading-md text-base">four-star rating</h3>
+          <p class="text-stone text-sm leading-relaxed">independently assessed on facilities, cleanliness, and service.</p>
+          <p class="text-navy text-xs font-medium">renewed 2026</p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-xl p-6 space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">eco</div>
+          <h3 class="heading-md text-base">green hotel certified</h3>
+          <p class="text-stone text-sm leading-relaxed">recognised for water, waste, and energy reduction across both buildings.</p>
+          <p class="text-navy text-xs font-medium">certified since 2021</p>
+        </div>
+
+        <div class="bg-surface border border-border rounded-xl p-6 space-y-3">
+          <div class="w-11 h-11 rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">hr</div>
+          <h3 class="heading-md text-base">best place to work</h3>
+          <p class="text-stone text-sm leading-relaxed">regional award for staff retention and training, voted by employees.</p>
+          <p class="text-navy text-xs font-medium">2025</p>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-cream">about us</a></li>
+        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+</body>
+</html>
