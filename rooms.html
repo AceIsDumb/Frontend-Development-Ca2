@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — Rooms &amp; Suites</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="booking.html" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now -->
+      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- page header banner, same treatment as the contact / things-to-do pages -->
+  <section class="relative h-72 flex items-end">
+    <div class="img-placeholder absolute inset-0">page banner photo — hero-rooms.jpg</div>
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
+      <p class="eyebrow text-cream/70 mb-3">accommodations</p>
+      <h1 class="font-serif text-cream text-4xl">rooms &amp; suites</h1>
+    </div>
+  </section>
+
+  <!-- room types -->
+  <section class="max-w-7xl mx-auto px-8 py-20">
+    <div class="flex items-end justify-between mb-10">
+      <div>
+        <p class="eyebrow mb-3">room types</p>
+        <h2 class="heading-lg">find your room</h2>
+      </div>
+      <p class="text-stone text-sm max-w-xs hidden sm:block">every room shares the same quiet, considered feel — pick the size and view that suits your stay.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+        <div class="img-placeholder h-48 rounded-none">room photo — room-standard.jpg</div>
+        <div class="p-5 space-y-2">
+          <h3 class="heading-md">Standard Room</h3>
+          <p class="text-stone text-sm leading-relaxed">queen bed, city view, 26 sqm — a compact room kept simple and bright.</p>
+          <div class="flex justify-between items-center pt-3">
+            <p class="text-navy font-medium">from $150 / night</p>
+            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+        <div class="img-placeholder h-48 rounded-none">room photo — room-deluxe.jpg</div>
+        <div class="p-5 space-y-2">
+          <h3 class="heading-md">Deluxe Room</h3>
+          <p class="text-stone text-sm leading-relaxed">king bed, private balcony, 32 sqm — more space, a little more light.</p>
+          <div class="flex justify-between items-center pt-3">
+            <p class="text-navy font-medium">from $220 / night</p>
+            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+        <div class="img-placeholder h-48 rounded-none">room photo — room-suite.jpg</div>
+        <div class="p-5 space-y-2">
+          <h3 class="heading-md">Suite</h3>
+          <p class="text-stone text-sm leading-relaxed">king bed, separate lounge, 45 sqm — the most room to spread out and settle in.</p>
+          <div class="flex justify-between items-center pt-3">
+            <p class="text-navy font-medium">from $310 / night</p>
+            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cream">about us</a></li>
+        <li><a href="#" class="hover:text-cream">reviews</a></li>
+        <li><a href="#" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+</body>
+</html>

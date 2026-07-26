@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — Booking</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="booking.html" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now -->
+      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="max-w-4xl mx-auto px-8 py-20">
+    <p class="eyebrow mb-3">reserve a room</p>
+    <h1 class="heading-lg mb-8">book your stay</h1>
+
+    <form novalidate class="bg-surface border border-border rounded-2xl p-8 md:p-10 space-y-8">
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label class="field-label" for="checkin">check in</label>
+          <input type="date" id="checkin" name="checkin" class="field-input">
+        </div>
+        <div>
+          <label class="field-label" for="checkout">check out</label>
+          <input type="date" id="checkout" name="checkout" class="field-input">
+        </div>
+        <div>
+          <label class="field-label" for="guests">guests</label>
+          <select id="guests" name="guests" class="field-input">
+            <option>2 adults</option>
+            <option>1 adult</option>
+            <option>3 adults</option>
+            <option>family</option>
+          </select>
+        </div>
+        <div>
+          <label class="field-label" for="roomtype">room type</label>
+          <select id="roomtype" name="roomtype" class="field-input">
+            <option>standard room</option>
+            <option>deluxe room</option>
+            <option>suite</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- add-ons -->
+      <div>
+        <p class="field-label mb-3">add-ons</p>
+        <div class="flex flex-wrap gap-3">
+          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">breakfast</button>
+          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">airport transfer</button>
+          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">late checkout</button>
+        </div>
+      </div>
+
+      <!-- summary + confirm -->
+      <div class="flex items-center justify-between border-t border-border pt-6">
+        <p class="heading-md text-base">total: $150</p>
+        <button type="submit" class="btn-primary">confirm booking</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cream">about us</a></li>
+        <li><a href="#" class="hover:text-cream">reviews</a></li>
+        <li><a href="#" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — Room Details</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="booking.html" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now -->
+      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="max-w-7xl mx-auto px-8 py-16 space-y-10">
+
+    <!-- breadcrumb + room selector tabs -->
+    <div>
+      <p class="eyebrow mb-3"><a href="rooms.html" class="hover:text-navy">rooms &amp; suites</a> / room detail</p>
+      <div class="text-sm font-medium mb-3 text-stone">select a room</div>
+      <!-- tabs, styling shows the current room; not wired to switch content -->
+      <div role="tablist" aria-label="Room type" class="inline-flex gap-2 bg-navytint p-1 rounded-lg">
+        <a role="tab" aria-selected="true" href="room-details.html" class="px-5 py-2 rounded-md text-sm font-medium bg-navy text-cream">Standard Room</a>
+        <a role="tab" aria-selected="false" href="room-details.html" class="px-5 py-2 rounded-md text-sm font-medium text-navylight hover:text-navy">Deluxe Room</a>
+        <a role="tab" aria-selected="false" href="room-details.html" class="px-5 py-2 rounded-md text-sm font-medium text-navylight hover:text-navy">Suite</a>
+      </div>
+    </div>
+
+    <!-- gallery -->
+    <div class="space-y-3">
+      <div class="img-placeholder h-96">main photo — room-standard-main.jpg</div>
+      <div class="grid grid-cols-4 gap-3">
+        <div class="img-placeholder h-24">thumb — room-standard-1.jpg</div>
+        <div class="img-placeholder h-24">thumb — room-standard-2.jpg</div>
+        <div class="img-placeholder h-24">thumb — room-standard-3.jpg</div>
+        <div class="img-placeholder h-24">thumb — room-standard-4.jpg</div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <!-- room info -->
+      <div class="md:col-span-2 space-y-8">
+        <div class="flex items-center justify-between">
+          <h1 class="heading-lg">Standard Room</h1>
+          <p class="heading-lg !text-2xl">$150 / night</p>
+        </div>
+        <p class="text-stone leading-relaxed">queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night's rest. quiet enough to work in, comfortable enough to do nothing at all.</p>
+
+        <div>
+          <p class="text-sm font-medium mb-3 text-stone">specs</p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="text-center space-y-2">
+              <div class="w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">m²</div>
+              <p class="text-xs text-stone">26 sqm</p>
+            </div>
+            <div class="text-center space-y-2">
+              <div class="w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">bed</div>
+              <p class="text-xs text-stone">queen bed</p>
+            </div>
+            <div class="text-center space-y-2">
+              <div class="w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">2</div>
+              <p class="text-xs text-stone">sleeps 2</p>
+            </div>
+            <div class="text-center space-y-2">
+              <div class="w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">~</div>
+              <p class="text-xs text-stone">city view</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm font-medium mb-3 text-stone">amenities</p>
+          <div class="grid sm:grid-cols-2 gap-3">
+            <div class="bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0">wifi</div>
+              <span class="text-sm">free high-speed wifi</span>
+            </div>
+            <div class="bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0">ac</div>
+              <span class="text-sm">air conditioning</span>
+            </div>
+            <div class="bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0">tv</div>
+              <span class="text-sm">smart tv</span>
+            </div>
+            <div class="bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0">cup</div>
+              <span class="text-sm">coffee &amp; tea station</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- booking cta card -->
+      <div class="bg-surface border border-border rounded-2xl p-6 h-fit space-y-4">
+        <p class="heading-md text-base">book: Standard Room</p>
+        <div>
+          <label class="field-label">check in</label>
+          <input type="date" class="field-input">
+        </div>
+        <div>
+          <label class="field-label">check out</label>
+          <input type="date" class="field-input">
+        </div>
+        <a href="booking.html" class="btn-primary w-full mt-2">Book Now</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cream">about us</a></li>
+        <li><a href="#" class="hover:text-cream">reviews</a></li>
+        <li><a href="#" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+</body>
+</html>
