@@ -14,14 +14,19 @@
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
     <div class="font-serif text-2xl text-navy">Hotel Logo</div>
-    <!-- hamburger icon, sits where the nav menu should open from.
-         no click logic yet, just the markup/placement for now -->
-    <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
-      <span class="block h-0.5 w-7 bg-stone"></span>
-      <span class="block h-0.5 w-5 bg-stone"></span>
-      <span class="block h-0.5 w-7 bg-stone"></span>
-    </button>
-    <a href="#" class="btn-primary">Book Now</a>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="#" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now -->
+      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
   </div>
 </header>
 
