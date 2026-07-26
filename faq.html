@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Name — FAQ</title>
+
+<!-- tailwind cdn + our shared config, in that order -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="js/tailwind-config.js"></script>
+
+<!-- our shared stylesheet, has fonts + button/heading classes -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-cream text-stonedark">
+
+<!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
+<header class="bg-cream border-b border-border">
+  <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+
+    <!-- book now + hamburger grouped together on the right, instead of
+         justify-between spacing all 3 evenly across the bar -->
+    <div class="flex items-center gap-5">
+      <a href="#" class="btn-primary">Book Now</a>
+      <!-- hamburger icon, sits where the nav menu should open from.
+           no click logic yet, just the markup/placement for now -->
+      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+        <span class="block h-0.5 w-7 bg-stone"></span>
+        <span class="block h-0.5 w-5 bg-stone"></span>
+        <span class="block h-0.5 w-7 bg-stone"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- page header banner, same hero treatment as every other page,
+       just shorter than the homepage one -->
+  <section class="relative h-72 flex items-end">
+    <div class="img-placeholder absolute inset-0">page banner photo — hero-faq.jpg</div>
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
+      <p class="eyebrow text-cream/70 mb-3">here to help</p>
+      <h1 class="font-serif text-cream text-4xl">frequently asked questions</h1>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-8 py-20">
+    <p class="text-stone text-sm mb-10">can't find what you're looking for? search below or reach out to us directly.</p>
+
+    <!-- live search, filters the questions below as the user types.
+         js/faq.js does the actual filtering, this is just the markup -->
+    <div class="mb-14">
+      <label class="field-label" for="faq-search">search questions</label>
+      <input class="field-input" type="search" id="faq-search" name="faq-search" placeholder="e.g. cancellation, parking, pets...">
+    </div>
+
+    <p id="faq-no-results" class="hidden text-stone text-sm bg-surfacealt border border-border rounded-lg px-4 py-3 mb-10">
+      no questions match your search. try a different word.
+    </p>
+
+    <!-- each category is its own section so the search js can hide a
+         whole group (heading included) when nothing in it matches -->
+    <div class="space-y-14">
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">check-in and check-out</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4" open>
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>what time is check-in and check-out?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>check-in begins at 3:00 pm and check-out is by 11:00 am. early check-in and late check-out may be arranged in advance, subject to availability.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>can i request an early check-in or late check-out?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>yes, subject to room availability. please contact us ahead of your stay to make a request.</p>
+          </details>
+        </div>
+      </section>
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">booking and cancellation</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>what is your cancellation policy?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>cancellations made at least 48 hours before check-in are fully refundable. cancellations made after this window are non-refundable.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>do you require a deposit to confirm a booking?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>a valid credit card is required to guarantee your reservation. full payment is collected at check-in.</p>
+          </details>
+        </div>
+      </section>
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">general questions</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>is parking available on-site?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>yes, complimentary parking is available for all registered guests.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>are pets allowed?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>we welcome small pets in designated pet-friendly rooms. please inform us in advance so we can prepare accordingly.</p>
+          </details>
+        </div>
+      </section>
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">rooms and amenities</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>what amenities are included in the room rate?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>all rooms include complimentary wifi, air conditioning, a smart tv, and access to the fitness center and pool. breakfast is included with select room packages.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>can i request a specific room or floor?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>room and floor preferences can be noted at booking and will be accommodated where possible, though they are not guaranteed.</p>
+          </details>
+        </div>
+      </section>
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">family and group stays</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>do you offer connecting or adjoining rooms?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>yes, connecting rooms are available on request, subject to availability. please let us know when booking.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>is there an extra charge for additional guests or children?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>children under 12 stay free when using existing bedding. an additional guest fee applies for extra adults beyond standard room occupancy.</p>
+          </details>
+        </div>
+      </section>
+
+      <section data-faq-group>
+        <h2 class="heading-md mb-4">payment and billing</h2>
+        <div class="space-y-3">
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>what payment methods do you accept?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>we accept all major credit cards, debit cards, and digital wallets. cash payments are accepted on-site at check-out.</p>
+          </details>
+          <details class="group bg-surface border border-border rounded-xl px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-medium text-navy marker:content-none">
+              <span data-faq-question>will i be charged in advance for my stay?</span>
+              <svg class="w-4 h-4 text-stone shrink-0 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7l5 5 5-5"/></svg>
+            </summary>
+            <p class="mt-3 text-sm text-stone leading-relaxed" data-faq-answer>a valid card is required to guarantee your booking, but full payment is only collected at check-in or check-out, depending on your rate type.</p>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-navy text-cream/70">
+  <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-cream">home</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-cream">about us</a></li>
+        <li><a href="#" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <ul class="space-y-2 text-sm">
+        <li>address line</li>
+        <li>hello@hotelname.com</li>
+        <li>+1 (555) 019 4420</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+</footer>
+
+<script src="js/faq.js"></script>
+</body>
+</html>
