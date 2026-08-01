@@ -11,7 +11,7 @@
 </head>
 <body class="bg-cream text-stonedark">
 
-<header class="bg-cream border-b border-border">
+<header class="bg-cream border-b border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
     <div class="font-serif text-2xl text-navy">Hotel Logo</div>
 
@@ -54,38 +54,38 @@
 
     <div class="grid md:grid-cols-3 gap-8">
 
-      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+      <div class="js-room-card bg-surface border border-border rounded-xl overflow-hidden">
         <div class="img-placeholder h-48 rounded-none">room photo — room-standard.jpg</div>
         <div class="p-5 space-y-2">
-          <h3 class="heading-md">Standard Room</h3>
+          <h3 class="js-room-name heading-md">Standard Room</h3>
           <p class="text-stone text-sm leading-relaxed">queen bed, city view, 26 sqm — a compact room kept simple and bright.</p>
           <div class="flex justify-between items-center pt-3">
             <p class="text-navy font-medium">from $150 / night</p>
-            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+            <a href="room-details.html" class="js-view-details btn-secondary !py-2 !px-4 text-xs">view details</a>
           </div>
         </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+      <div class="js-room-card bg-surface border border-border rounded-xl overflow-hidden">
         <div class="img-placeholder h-48 rounded-none">room photo — room-deluxe.jpg</div>
         <div class="p-5 space-y-2">
-          <h3 class="heading-md">Deluxe Room</h3>
+          <h3 class="js-room-name heading-md">Deluxe Room</h3>
           <p class="text-stone text-sm leading-relaxed">king bed, private balcony, 32 sqm — more space, a little more light.</p>
           <div class="flex justify-between items-center pt-3">
             <p class="text-navy font-medium">from $220 / night</p>
-            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+            <a href="room-details.html" class="js-view-details btn-secondary !py-2 !px-4 text-xs">view details</a>
           </div>
         </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl overflow-hidden">
+      <div class="js-room-card bg-surface border border-border rounded-xl overflow-hidden">
         <div class="img-placeholder h-48 rounded-none">room photo — room-suite.jpg</div>
         <div class="p-5 space-y-2">
-          <h3 class="heading-md">Suite</h3>
+          <h3 class="js-room-name heading-md">Suite</h3>
           <p class="text-stone text-sm leading-relaxed">king bed, separate lounge, 45 sqm — the most room to spread out and settle in.</p>
           <div class="flex justify-between items-center pt-3">
             <p class="text-navy font-medium">from $310 / night</p>
-            <a href="room-details.html" class="btn-secondary !py-2 !px-4 text-xs">view details</a>
+            <a href="room-details.html" class="js-view-details btn-secondary !py-2 !px-4 text-xs">view details</a>
           </div>
         </div>
       </div>
@@ -111,9 +111,9 @@
     <div>
       <p class="text-cream text-sm font-medium mb-4">company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-cream">about us</a></li>
-        <li><a href="#" class="hover:text-cream">reviews</a></li>
-        <li><a href="#" class="hover:text-cream">faq</a></li>
+        <li><a href="about.html" class="hover:text-cream">about us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
       </ul>
     </div>
     <div>
@@ -129,6 +129,8 @@
   <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
 </footer>
 
+<script src="js/booking-forms.js"></script>
 <script src="js/nav.js"></script>
+
 </body>
 </html>

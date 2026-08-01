@@ -35,20 +35,22 @@
     <p class="eyebrow mb-3">reserve a room</p>
     <h1 class="heading-lg mb-8">book your stay</h1>
 
-    <form novalidate class="bg-surface border border-border rounded-2xl p-8 md:p-10 space-y-8">
+    <form novalidate class="js-booking-form bg-surface border border-border rounded-2xl p-8 md:p-10 space-y-8">
 
       <div class="grid sm:grid-cols-2 gap-6">
         <div>
           <label class="field-label" for="checkin">check in</label>
-          <input type="date" id="checkin" name="checkin" class="field-input">
+          <input type="date" id="checkin" name="checkin" class="js-checkin field-input">
+          <p class="field-error-msg" role="alert"></p>
         </div>
         <div>
           <label class="field-label" for="checkout">check out</label>
-          <input type="date" id="checkout" name="checkout" class="field-input">
+          <input type="date" id="checkout" name="checkout" class="js-checkout field-input">
+          <p class="field-error-msg" role="alert"></p>
         </div>
         <div>
           <label class="field-label" for="guests">guests</label>
-          <select id="guests" name="guests" class="field-input">
+          <select id="guests" name="guests" class="js-guests field-input">
             <option>2 adults</option>
             <option>1 adult</option>
             <option>3 adults</option>
@@ -57,7 +59,7 @@
         </div>
         <div>
           <label class="field-label" for="roomtype">room type</label>
-          <select id="roomtype" name="roomtype" class="field-input">
+          <select id="roomtype" name="roomtype" class="js-roomtype field-input">
             <option>standard room</option>
             <option>deluxe room</option>
             <option>suite</option>
@@ -69,17 +71,19 @@
       <div>
         <p class="field-label mb-3">add-ons</p>
         <div class="flex flex-wrap gap-3">
-          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">breakfast</button>
-          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">airport transfer</button>
-          <button type="button" class="btn-secondary !py-2 !px-4 text-xs">late checkout</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">breakfast</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">airport transfer</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">late checkout</button>
         </div>
       </div>
 
       <!-- summary + confirm -->
       <div class="flex items-center justify-between border-t border-border pt-6">
-        <p class="heading-md text-base">total: $150</p>
+        <p class="heading-md text-base">total: $<span class="js-total-price">150</span></p>
         <button type="submit" class="btn-primary">confirm booking</button>
       </div>
+
+      <p class="js-booking-confirmation text-sm text-navylight" aria-live="polite"></p>
     </form>
   </section>
 </main>
@@ -101,9 +105,9 @@
     <div>
       <p class="text-cream text-sm font-medium mb-4">company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-cream">about us</a></li>
-        <li><a href="#" class="hover:text-cream">reviews</a></li>
-        <li><a href="#" class="hover:text-cream">faq</a></li>
+        <li><a href="about.html" class="hover:text-cream">about us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
       </ul>
     </div>
     <div>
@@ -119,6 +123,8 @@
   <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
 </footer>
 
+<script src="js/booking-forms.js"></script>
 <script src="js/nav.js"></script>
+
 </body>
 </html>
