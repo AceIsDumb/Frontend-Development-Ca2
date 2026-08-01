@@ -24,8 +24,7 @@
     <div class="flex items-center gap-5">
       <a href="booking.html" class="btn-primary">Book Now</a>
       <!-- hamburger icon, sits where the nav menu should open from.
-           no click logic yet, just the markup/placement for now.
-           ids + aria are here so the js can be dropped in later -->
+           nav.js wires this up and builds the drawer -->
       <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
               class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
         <span class="block h-0.5 w-7 bg-stone"></span>
@@ -36,44 +35,6 @@
   </div>
 </header>
 
-<!-- slide-out nav drawer, built from the nav wireframe: opens from the
-     right, current page highlighted, book now pinned at the bottom.
-     starts hidden. no open/close js yet — to preview it, delete the
-     word "hidden" from both #nav-backdrop and #nav-drawer below.
-     TODO (js): #nav-open shows both, #nav-close and #nav-backdrop hide
-     both, and flip aria-expanded on #nav-open -->
-<div id="nav-backdrop" class="hidden fixed inset-0 bg-navy/50 z-40"></div>
-
-<aside id="nav-drawer" class="hidden fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface flex flex-col">
-  <div class="flex items-center justify-between px-6 py-5 border-b border-border">
-    <p class="font-serif text-xl text-navy">Menu</p>
-    <button id="nav-close" aria-label="close menu" class="text-2xl leading-none text-stone hover:text-navy">&times;</button>
-  </div>
-
-  <nav class="flex-1 overflow-y-auto py-3">
-    <ul class="text-sm">
-      <li><a href="index.html" class="block px-6 py-3 hover:bg-surfacealt">home</a></li>
-      <!-- current page gets the navytint highlight, same as the
-           wireframe. move aria-current + these two classes onto
-           whichever page you're on -->
-      <li><a href="about.html" aria-current="page" class="block px-6 py-3 bg-navytint text-navy font-medium">about us</a></li>
-      <li><a href="rooms.html" class="block px-6 py-3 hover:bg-surfacealt">rooms &amp; suites</a></li>
-      <li><a href="room-details.html" class="block px-6 py-3 hover:bg-surfacealt">room detail</a></li>
-      <li><a href="amenities.html" class="block px-6 py-3 hover:bg-surfacealt">amenities</a></li>
-      <li><a href="gallery.html" class="block px-6 py-3 hover:bg-surfacealt">gallery</a></li>
-      <li><a href="booking.html" class="block px-6 py-3 hover:bg-surfacealt">booking</a></li>
-      <li><a href="offers.html" class="block px-6 py-3 hover:bg-surfacealt">offers</a></li>
-      <li><a href="reviews.html" class="block px-6 py-3 hover:bg-surfacealt">reviews</a></li>
-      <li><a href="faq.html" class="block px-6 py-3 hover:bg-surfacealt">faq</a></li>
-      <li><a href="contact.html" class="block px-6 py-3 hover:bg-surfacealt">location / contact</a></li>
-      <li><a href="things-to-do.html" class="block px-6 py-3 hover:bg-surfacealt">things to do</a></li>
-    </ul>
-  </nav>
-
-  <div class="px-6 py-5 border-t border-border">
-    <a href="booking.html" class="btn-primary w-full">Book Now</a>
-  </div>
-</aside>
 
 <main>
 
@@ -92,7 +53,14 @@
         <div class="space-y-4">
           <p class="text-stone text-sm leading-relaxed">the hotel opened in 1998 with eleven rooms, one shared kitchen, and a founding pair who had spent years working in other people's hotels and taking notes on what they would do differently.</p>
           <p class="text-stone text-sm leading-relaxed">what they wanted was simple and surprisingly rare: a place where the staff knew your name by the second morning, where nothing in the room needed a manual, and where the quiet was treated as a feature rather than an accident.</p>
-          <p class="text-stone text-sm leading-relaxed">twenty-eight years later we have grown to sixty-four rooms across two buildings, and the founding pair still walk the floor most mornings. the notebook is still in use.</p>
+          <!-- hidden until the read more button is pressed -->
+          <div id="story-more" class="hidden space-y-4">
+            <p class="text-stone text-sm leading-relaxed">twenty-eight years later we have grown to sixty-four rooms across two buildings, and the founding pair still walk the floor most mornings. the notebook is still in use.</p>
+            <p class="text-stone text-sm leading-relaxed">the second building came in 2014, an old post office next door that had been empty for six years. we kept the counter, the tiled floor, and the original clock above the door.</p>
+            <p class="text-stone text-sm leading-relaxed">most of our staff have been here longer than a decade, which we think is the part guests actually notice, even if it is not the part they can point to.</p>
+          </div>
+
+          <button type="button" id="story-toggle" aria-expanded="false" aria-controls="story-more" class="btn-secondary text-sm">read more</button>
         </div>
       </div>
     </div>
@@ -137,10 +105,11 @@
       <ul class="space-y-2 text-sm">
         <li><a href="index.html" class="hover:text-cream">home</a></li>
         <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
         <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
         <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
         <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
       </ul>
     </div>
     <div>
@@ -149,6 +118,8 @@
         <li><a href="about.html" class="hover:text-cream">about us</a></li>
         <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
         <li><a href="faq.html" class="hover:text-cream">faq</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
       </ul>
     </div>
     <div>
@@ -165,5 +136,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/about.js"></script>
 </body>
 </html>

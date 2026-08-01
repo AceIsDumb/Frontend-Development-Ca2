@@ -24,8 +24,7 @@
     <div class="flex items-center gap-5">
       <a href="booking.html" class="btn-primary">Book Now</a>
       <!-- hamburger icon, sits where the nav menu should open from.
-           no click logic yet, just the markup/placement for now.
-           ids + aria are here so the js can be dropped in later -->
+           nav.js wires this up and builds the drawer -->
       <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
               class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
         <span class="block h-0.5 w-7 bg-stone"></span>
@@ -36,42 +35,6 @@
   </div>
 </header>
 
-<!-- slide-out nav drawer, built from the nav wireframe: opens from the
-     right, current page highlighted, book now pinned at the bottom.
-     starts hidden. no open/close js yet — to preview it, delete the
-     word "hidden" from both #nav-backdrop and #nav-drawer below.
-     TODO (js): #nav-open shows both, #nav-close and #nav-backdrop hide
-     both, and flip aria-expanded on #nav-open -->
-<div id="nav-backdrop" class="hidden fixed inset-0 bg-navy/50 z-40"></div>
-
-<aside id="nav-drawer" class="hidden fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface flex flex-col">
-  <div class="flex items-center justify-between px-6 py-5 border-b border-border">
-    <p class="font-serif text-xl text-navy">Menu</p>
-    <button id="nav-close" aria-label="close menu" class="text-2xl leading-none text-stone hover:text-navy">&times;</button>
-  </div>
-
-  <nav class="flex-1 overflow-y-auto py-3">
-    <ul class="text-sm">
-      <li><a href="index.html" class="block px-6 py-3 hover:bg-surfacealt">home</a></li>
-      <li><a href="about.html" class="block px-6 py-3 hover:bg-surfacealt">about us</a></li>
-      <li><a href="rooms.html" class="block px-6 py-3 hover:bg-surfacealt">rooms &amp; suites</a></li>
-      <li><a href="room-details.html" class="block px-6 py-3 hover:bg-surfacealt">room detail</a></li>
-      <li><a href="amenities.html" class="block px-6 py-3 hover:bg-surfacealt">amenities</a></li>
-      <li><a href="gallery.html" class="block px-6 py-3 hover:bg-surfacealt">gallery</a></li>
-      <li><a href="booking.html" class="block px-6 py-3 hover:bg-surfacealt">booking</a></li>
-      <!-- current page gets the navytint highlight, same as the wireframe -->
-      <li><a href="offers.html" aria-current="page" class="block px-6 py-3 bg-navytint text-navy font-medium">offers</a></li>
-      <li><a href="reviews.html" class="block px-6 py-3 hover:bg-surfacealt">reviews</a></li>
-      <li><a href="faq.html" class="block px-6 py-3 hover:bg-surfacealt">faq</a></li>
-      <li><a href="contact.html" class="block px-6 py-3 hover:bg-surfacealt">location / contact</a></li>
-      <li><a href="things-to-do.html" class="block px-6 py-3 hover:bg-surfacealt">things to do</a></li>
-    </ul>
-  </nav>
-
-  <div class="px-6 py-5 border-t border-border">
-    <a href="booking.html" class="btn-primary w-full">Book Now</a>
-  </div>
-</aside>
 
 <main>
 
@@ -81,77 +44,92 @@
 
     <p class="eyebrow mb-3">deals and packages</p>
     <h1 class="heading-lg mb-4">current offers &amp; packages</h1>
-    <p class="text-stone text-sm mb-14 max-w-2xl">rates and packages available for booking now. each one applies automatically when you select it on the booking page.</p>
+    <p class="text-stone text-sm mb-10 max-w-2xl">rates and packages available for booking now. each one applies automatically when you select it on the booking page.</p>
 
-    <!-- deal cards. each has data-deal on it so the filter js can find
-         them later without touching the markup again — same idea as the
-         data-category attributes on gallery.html.
-         flex-col + mt-auto on the bottom row keeps the price and button
-         lined up across all the cards even when the descriptions are
-         different lengths -->
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-      <article data-deal="limited-time" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">limited time</span>
-        <h2 class="heading-md text-base mb-2">three nights, pay for two</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">book any room for three consecutive nights and the third is on us. valid on stays completed before the end of the season.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $300 total</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
-      <article data-deal="honeymoon" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">honeymoon</span>
-        <h2 class="heading-md text-base mb-2">the slow start</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">a suite with a late checkout, breakfast brought to the room, and a table held for you on the first evening.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $410 / night</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
-      <article data-deal="long-stay" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">long-stay</span>
-        <h2 class="heading-md text-base mb-2">a week or more</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">stays of seven nights and over come with a reduced nightly rate, weekly housekeeping, and laundry included.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $125 / night</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
-      <article data-deal="seasonal" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">seasonal</span>
-        <h2 class="heading-md text-base mb-2">off-season quiet</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">the hotel at its quietest, at its lowest rates of the year. midweek arrivals only, deluxe rooms and above.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $165 / night</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
-      <article data-deal="family" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">family</span>
-        <h2 class="heading-md text-base mb-2">two rooms, one rate</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">two adjoining rooms booked together at a single reduced rate, with breakfast included for up to four guests.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $270 / night</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
-      <article data-deal="advance" class="bg-surface border border-border rounded-xl p-6 flex flex-col">
-        <span class="self-start bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full mb-4">advance purchase</span>
-        <h2 class="heading-md text-base mb-2">book early, pay less</h2>
-        <p class="text-stone text-sm leading-relaxed mb-6">reserve at least sixty days ahead for a lower rate on any room type. paid in full at booking, non-refundable.</p>
-        <div class="flex items-center justify-between gap-3 mt-auto">
-          <p class="text-navy font-medium">from $135 / night</p>
-          <a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs">learn more</a>
-        </div>
-      </article>
-
+    <!-- filter buttons. same pattern as the gallery page: data-filter on
+         each button, "all" starts as the active one -->
+    <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+      <h2 class="heading-md text-base">filter by deal type</h2>
+      <div role="radiogroup" aria-label="filter offers by deal type" class="flex flex-wrap gap-3">
+        <button type="button" role="radio" aria-checked="true" data-filter="all" class="btn-primary text-sm">all</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="limited-time" class="btn-secondary text-sm">limited time</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="honeymoon" class="btn-secondary text-sm">honeymoon</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="long-stay" class="btn-secondary text-sm">long-stay</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="family" class="btn-secondary text-sm">family</button>
+      </div>
     </div>
+
+    <!-- packages table. overflow-x-auto lets it scroll sideways on a
+         phone instead of squashing the columns -->
+    <div class="overflow-x-auto bg-surface border border-border rounded-xl">
+      <table class="w-full text-sm text-left border-collapse">
+        <caption class="sr-only">current hotel offers and packages, with deal type, what is included, and nightly rate</caption>
+
+        <thead>
+          <tr class="bg-surfacealt border-b border-border">
+            <th scope="col" class="px-5 py-4 font-medium text-navy">package</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">deal type</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">what&apos;s included</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">from</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy"><span class="sr-only">booking link</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- data-deal on each row so the filter script can match it -->
+          <tr data-deal="limited-time" class="border-b border-border">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">three nights, pay for two</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">limited time</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">third night free on any room type, on stays completed before the end of the season</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$300 total</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+
+          <tr data-deal="honeymoon" class="border-b border-border">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">the slow start</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">honeymoon</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">suite, late checkout, breakfast brought to the room, and a table held on the first evening</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$410 / night</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+
+          <tr data-deal="long-stay" class="border-b border-border">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">a week or more</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">long-stay</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">reduced nightly rate on stays of seven nights or more, weekly housekeeping and laundry included</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$125 / night</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+
+          <tr data-deal="limited-time" class="border-b border-border">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">off-season quiet</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">limited time</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">our lowest rates of the year on deluxe rooms and above, midweek arrivals only</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$165 / night</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+
+          <tr data-deal="family" class="border-b border-border">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">two rooms, one rate</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">family</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">two adjoining rooms at a single reduced rate, breakfast included for up to four guests</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$270 / night</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+
+          <tr data-deal="long-stay">
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">book early, pay less</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">long-stay</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">lower rate on any room when you reserve sixty days ahead, paid in full at booking and non-refundable</td>
+            <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$135 / night</td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- shown by the filter script when a deal type has no matching rows -->
+    <p id="offers-no-results" class="hidden text-stone text-sm mt-6">no packages match that deal type right now.</p>
   </section>
 
 </main>
@@ -167,10 +145,11 @@
       <ul class="space-y-2 text-sm">
         <li><a href="index.html" class="hover:text-cream">home</a></li>
         <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
         <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
         <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
         <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
       </ul>
     </div>
     <div>
@@ -179,6 +158,8 @@
         <li><a href="about.html" class="hover:text-cream">about us</a></li>
         <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
         <li><a href="faq.html" class="hover:text-cream">faq</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
       </ul>
     </div>
     <div>
@@ -195,5 +176,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/offers.js"></script>
 </body>
 </html>
