@@ -45,8 +45,8 @@
       <h1 class="font-serif text-cream text-5xl md:text-6xl leading-tight max-w-2xl">a quiet stay, thoughtfully kept</h1>
       <p class="mt-5 max-w-md text-cream/80">comfortable rooms, considered service, and a setting built for slowing down.</p>
       <div class="mt-8 flex gap-4">
-        <a href="#" class="btn-primary">Check Availability</a>
-        <a href="#" class="btn-secondary">Explore Rooms</a>
+        <a href="#check-availability" class="btn-primary">Check Availability</a>
+        <a href="rooms.html" class="btn-secondary">Explore Rooms</a>
       </div>
     </div>
   </section>
@@ -69,7 +69,7 @@
         <p class="eyebrow mb-3">featured rooms</p>
         <h2 class="heading-lg">where you'll wake up</h2>
       </div>
-      <a href="#" class="text-sm text-navy underline underline-offset-4 hidden sm:block">view all rooms</a>
+      <a href="rooms.html" class="text-sm text-navy underline underline-offset-4 hidden sm:block">view all rooms</a>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
       <div>
@@ -93,22 +93,24 @@
     </div>
   </section>
 
-  <!-- quick booking widget, no validation js yet, just markup -->
-  <section class="max-w-5xl mx-auto px-8 pb-24">
+  <!-- quick booking widget -->
+  <section id="check-availability" class="max-w-5xl mx-auto px-8 pb-24 scroll-mt-24">
     <div class="bg-navy rounded-3xl p-8 md:p-10">
       <p class="font-serif text-cream text-xl mb-6">check availability</p>
-      <form class="grid md:grid-cols-5 gap-4 items-end">
+      <form id="booking-form" class="grid md:grid-cols-5 gap-4 items-start" novalidate>
         <div>
-          <label class="text-cream/60 text-xs uppercase tracking-wide">check in</label>
-          <input type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <label class="text-cream/60 text-xs uppercase tracking-wide" for="checkin">check in</label>
+          <input id="checkin" type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <p class="field-error-msg">please pick a check-in date.</p>
         </div>
         <div>
-          <label class="text-cream/60 text-xs uppercase tracking-wide">check out</label>
-          <input type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <label class="text-cream/60 text-xs uppercase tracking-wide" for="checkout">check out</label>
+          <input id="checkout" type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <p class="field-error-msg">must be after check-in.</p>
         </div>
         <div>
-          <label class="text-cream/60 text-xs uppercase tracking-wide">guests</label>
-          <select class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <label class="text-cream/60 text-xs uppercase tracking-wide" for="guests">guests</label>
+          <select id="guests" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
             <option>2 adults</option>
             <option>1 adult</option>
             <option>3 adults</option>
@@ -116,16 +118,17 @@
           </select>
         </div>
         <div>
-          <label class="text-cream/60 text-xs uppercase tracking-wide">room type</label>
-          <select class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
+          <label class="text-cream/60 text-xs uppercase tracking-wide" for="roomtype">room type</label>
+          <select id="roomtype" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
             <option>any</option>
             <option>standard</option>
             <option>deluxe</option>
             <option>suite</option>
           </select>
         </div>
-        <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white">search</button>
+        <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white mt-2">search</button>
       </form>
+      <p id="booking-status" class="text-cream/80 text-sm mt-4 hidden"></p>
     </div>
   </section>
 
@@ -141,17 +144,17 @@
     <div>
       <p class="text-cream text-sm font-medium mb-4">explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="#" class="hover:text-cream">amenities</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
         <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
       </ul>
     </div>
     <div>
       <p class="text-cream text-sm font-medium mb-4">company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-cream">about us</a></li>
-        <li><a href="#" class="hover:text-cream">reviews</a></li>
-        <li><a href="#" class="hover:text-cream">faq</a></li>
+        <li><a href="about.html" class="hover:text-cream">about us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
       </ul>
     </div>
     <div>
@@ -167,6 +170,8 @@
   <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
 </footer>
 
+<!-- shared nav drawer logic, same file on every page -->
+<script src="js/nav.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>

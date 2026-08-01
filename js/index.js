@@ -1,12 +1,43 @@
-// js for the home page specifically. keep page-specific stuff in here
-// instead of dumping everything into one giant script file.
+// js for the home page - just the quick booking widget validation.
+// checks: both dates are filled in, and check-out is after check-in.
 
-// nothing wired up yet since nav + the booking widget aren't essential
-// for this pass, but here's roughly what should go here later:
-//
-// - hamburger nav open/close (probably shared across all pages tbh,
-//   might be worth pulling into its own shared nav.js once we build it)
-// - quick booking form validation (check in/out dates filled in,
-//   check-out is after check-in, etc)
+(function () {
+  var form = document.getElementById('booking-form');
+  if (!form) {
+    return;
+  }
 
-console.log('home page loaded');
+  var checkin = document.getElementById('checkin');
+  var checkout = document.getElementById('checkout');
+  var status = document.getElementById('booking-status');
+
+  function setError(field, hasError) {
+    var msg = field.parentElement.querySelector('.field-error-msg');
+    field.classList.toggle('field-error', hasError);
+    if (msg) {
+      msg.classList.toggle('visible', hasError);
+    }
+    return hasError;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var checkinMissing = setError(checkin, checkin.value === '');
+
+    // checkout is invalid if it's empty, or not after checkin
+    var checkoutInvalid =
+      checkout.value === '' ||
+      (checkin.value !== '' && checkout.value <= checkin.value);
+    setError(checkout, checkoutInvalid);
+
+    var isValid = !checkinMissing && !checkoutInvalid;
+
+    if (isValid) {
+      status.textContent = 'looks good — availability search would run here.';
+      status.classList.remove('hidden');
+    } else {
+      status.classList.add('hidden');
+    }
+  });
+})();

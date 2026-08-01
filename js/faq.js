@@ -16,9 +16,11 @@ if (searchInput) {
       let groupHasMatch = false;
 
       items.forEach(function (item) {
-        const question = item.querySelector('[data-faq-question]').textContent.toLowerCase();
-        const answer = item.querySelector('[data-faq-answer]').textContent.toLowerCase();
-        const matches = question.includes(query) || answer.includes(query);
+       const questionEl = item.querySelector('[data-faq-question]');
+       const answerEl = item.querySelector('[data-faq-answer]');
+       const question = questionEl ? questionEl.textContent.toLowerCase() : '';
+       const answer = answerEl ? answerEl.textContent.toLowerCase() : '';
+       const matches = question.includes(query) || answer.includes(query);
 
         item.classList.toggle('hidden', !matches);
         if (matches) {

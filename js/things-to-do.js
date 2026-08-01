@@ -1,10 +1,30 @@
-// js for the things to do page. map pins are just sitting there for
-// now with no click behaviour, since we said that stuff can wait.
+// js for the things to do page.
+// clicking a pin on the map highlights the matching row in the list
+// (and the other way round), matched up using the shared data-loc
+// attribute on both.
 
-// for whoever picks this up later — the idea was clicking a pin
-// highlights the matching item in the list beside it (and the other
-// way round too). would just need a shared data-loc attribute on
-// both the pin and the list row, then toggle an "active" class on
-// whichever pair matches on click.
+(function () {
+  var pins = document.querySelectorAll('.map-pin');
+  var items = document.querySelectorAll('.location-item');
 
-console.log('things to do page loaded');
+  function selectLocation(locId) {
+    pins.forEach(function (pin) {
+      pin.classList.toggle('active', pin.dataset.loc === locId);
+    });
+    items.forEach(function (item) {
+      item.classList.toggle('active', item.dataset.loc === locId);
+    });
+  }
+
+  pins.forEach(function (pin) {
+    pin.addEventListener('click', function () {
+      selectLocation(pin.dataset.loc);
+    });
+  });
+
+  items.forEach(function (item) {
+    item.addEventListener('click', function () {
+      selectLocation(item.dataset.loc);
+    });
+  });
+})();
