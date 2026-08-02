@@ -28,7 +28,10 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
+  /* transitions both bg + text colour so swapping .btn-primary /
+     .btn-secondary on click (e.g. the gallery filters) fades smoothly
+     instead of the text colour snapping instantly */
+  transition: background-color 0.2s ease, color 0.2s ease;
   border: none;
   cursor: pointer;
 }
@@ -48,7 +51,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
   border: none;
   cursor: pointer;
 }

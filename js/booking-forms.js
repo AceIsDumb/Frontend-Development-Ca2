@@ -59,6 +59,10 @@ function toDateOnly(value) {
   return Number.isNaN(parsed.getTime()) ? null : parsed;
 }
 
+// only accepts a strict YYYY-MM-DD shape before it's ever assigned to
+// an input's value — guards against junk/unexpected query-string data
+const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+
 /**
  * Validates a check-in / check-out date pair.
  * Rules: both required, check-in can't be in the past,
@@ -99,7 +103,8 @@ function validateStayDates(checkinEl, checkoutEl) {
 /* -----------------------------------------------------------------
    booking.html — main booking form
    Handles: date validation, add-on toggling, live total price,
-   and a confirmation message on successful submit.
+   prefilling dates handed off from room-details.html, and a
+   confirmation message on successful submit.
 ----------------------------------------------------------------- */
 
 const ROOM_PRICES = {
@@ -124,6 +129,11 @@ function initBookingForm() {
   const totalEl = form.querySelector('.js-total-price');
   const addonButtons = form.querySelectorAll('.js-addon');
   const confirmationEl = form.querySelector('.js-booking-confirmation');
+
+  // if someone arrived here from room-details.html's quick-booking
+  // form, the dates were carried over in the query string — read them
+  // back in so the visitor never has to type them a second time.
+  prefillDatesFromQueryString(checkinEl, checkoutEl);
 
   function updateTotal() {
     const roomKey = roomtypeEl.value.trim().toLowerCase();
@@ -179,10 +189,25 @@ function initBookingForm() {
   updateTotal();
 }
 
+function prefillDatesFromQueryString(checkinEl, checkoutEl) {
+  const params = new URLSearchParams(window.location.search);
+  const paramCheckin = params.get('checkin');
+  const paramCheckout = params.get('checkout');
+
+  if (paramCheckin && ISO_DATE_PATTERN.test(paramCheckin)) {
+    checkinEl.value = paramCheckin;
+  }
+
+  if (paramCheckout && ISO_DATE_PATTERN.test(paramCheckout)) {
+    checkoutEl.value = paramCheckout;
+  }
+}
+
 /* -----------------------------------------------------------------
    room-details.html — quick-booking widget in the sidebar card
    Validates the same way as the main booking form, then hands the
-   dates off to booking.html via the query string.
+   dates off to booking.html via the query string so they don't need
+   to be re-typed on the next page.
 ----------------------------------------------------------------- */
 
 function initRoomDetailsForm() {
@@ -202,9 +227,6 @@ function initRoomDetailsForm() {
       return;
     }
 
-    // dates are good — send the visitor on to the full booking page.
-    // booking.html doesn't read these params back into its own form
-    // yet, that part still needs to be built.
     const params = new URLSearchParams({
       checkin: checkinEl.value,
       checkout: checkoutEl.value
@@ -215,9 +237,14 @@ function initRoomDetailsForm() {
 
 /* -----------------------------------------------------------------
    room-details.html — room selector tabs
+   Identical pattern to gallery.js's filter buttons: loop every tab,
+   compare it against the one that was clicked, and swap the same
+   btn-primary / btn-secondary classes used everywhere else on the
+   site — no separate tab-only CSS needed.
+
    WORK IN PROGRESS: this only handles which tab *looks* selected.
    Swapping the gallery photos, specs, amenities and price to match
-   the chosen room still needs to be wired up.
+   the chosen room still needs to be wired up — see the TODO below.
 ----------------------------------------------------------------- */
 
 function initRoomTabs() {
@@ -228,19 +255,19 @@ function initRoomTabs() {
     tab.addEventListener('click', (event) => {
       event.preventDefault();
 
+      const selectedRoom = tab.dataset.room;
+
       tabs.forEach((otherTab) => {
-        otherTab.classList.remove('bg-navy', 'text-cream');
-        otherTab.classList.add('text-navylight');
-        otherTab.setAttribute('aria-selected', 'false');
+        const isSelected = otherTab === tab;
+        otherTab.setAttribute('aria-selected', String(isSelected));
+        otherTab.classList.toggle('btn-primary', isSelected);
+        otherTab.classList.toggle('btn-secondary', !isSelected);
       });
 
-      tab.classList.add('bg-navy', 'text-cream');
-      tab.classList.remove('text-navylight');
-      tab.setAttribute('aria-selected', 'true');
-
       // TODO: once each room type has its own data (photos, specs,
-      // price, amenities), look it up here and update the page
-      // content instead of stopping at the tab styling.
+      // price, amenities), look it up here using `selectedRoom` and
+      // update the page content instead of stopping at tab styling.
+      void selectedRoom;
     });
   });
 }
@@ -248,7 +275,7 @@ function initRoomTabs() {
 /* -----------------------------------------------------------------
    rooms.html — room cards
    No form on this page, but clicking "view details" remembers which
-   room was picked so room-details.html can read it back later.
+   room was picked so room-details.html could read it back later.
 ----------------------------------------------------------------- */
 
 function initRoomCardLinks() {
