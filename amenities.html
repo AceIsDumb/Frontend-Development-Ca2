@@ -54,40 +54,88 @@
          for the faq accordion items so the two pages feel consistent -->
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">swimming pool</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">a quiet outdoor pool with loungers, open to all guests year-round.</p>
-        <p class="text-navy text-xs font-medium">open daily, 7:00 am – 9:00 pm</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">a quiet outdoor pool with loungers, open to all guests year-round.</p>
+            <p class="text-navy text-xs font-medium">open daily, 7:00 am – 9:00 pm</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">fitness center</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">fully equipped gym with cardio machines, free weights, and mats.</p>
-        <p class="text-navy text-xs font-medium">open 24 hours for registered guests</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">fully equipped gym with cardio machines, free weights, and mats.</p>
+            <p class="text-navy text-xs font-medium">open 24 hours for registered guests</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">spa</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">full-service spa offering massages and skincare treatments.</p>
-        <p class="text-navy text-xs font-medium">open daily, 10:00 am – 8:00 pm, booking required</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">full-service spa offering massages and skincare treatments.</p>
+            <p class="text-navy text-xs font-medium">open daily, 10:00 am – 8:00 pm, booking required</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">restaurant</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">on-site dining serving breakfast, lunch, and dinner.</p>
-        <p class="text-navy text-xs font-medium">breakfast 7:00–10:30 am, dinner 6:00–10:00 pm</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">on-site dining serving breakfast, lunch, and dinner.</p>
+            <p class="text-navy text-xs font-medium">breakfast 7:00–10:30 am, dinner 6:00–10:00 pm</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">parking</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">complimentary on-site parking for all registered guests.</p>
-        <p class="text-navy text-xs font-medium">available 24 hours</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">complimentary on-site parking for all registered guests.</p>
+            <p class="text-navy text-xs font-medium">available 24 hours</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-surface border border-border rounded-xl p-6">
+      <div class="bg-surface border border-border rounded-xl p-6" data-amenity>
         <h2 class="heading-md text-base mb-2">wifi</h2>
-        <p class="text-stone text-sm leading-relaxed mb-3">complimentary high-speed wifi throughout the hotel and rooms.</p>
-        <p class="text-navy text-xs font-medium">available 24 hours</p>
+        <button type="button" class="flex items-center gap-1.5 text-navy text-xs font-medium" data-amenity-toggle>
+          <span data-amenity-toggle-label>read more</span>
+          <svg class="w-3.5 h-3.5 transition-transform duration-200" data-amenity-chevron viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 7l5 5 5-5"/></svg>
+        </button>
+        <div class="grid transition-all duration-300 ease-out grid-rows-[0fr]" data-amenity-details>
+          <div class="overflow-hidden">
+            <p class="text-stone text-sm leading-relaxed mt-3 mb-3">complimentary high-speed wifi throughout the hotel and rooms.</p>
+            <p class="text-navy text-xs font-medium">available 24 hours</p>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -136,5 +184,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/amenities.js"></script>
 </body>
 </html>
