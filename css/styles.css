@@ -239,7 +239,27 @@ body {
   }
 }
 
-/* Room details tab switcher: make tabs equal width so the selector
+
+/* For very narrow screens, stack tabs vertically and allow internal scrolling */
+@media (max-width: 420px) {
+  [role="tablist"] {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  [role="tablist"] .js-room-tab {
+    width: 100%;
+    padding: 0.6rem 0.6rem !important;
+    font-size: 0.9rem !important;
+    white-space: normal;
+  }
+}/* Room details tab switcher: make tabs equal width so the selector
    doesn't look uneven when room names differ in length */
 [role="tablist"] { display: inline-flex; }
 [role="tablist"] .js-room-tab {
@@ -248,4 +268,5 @@ body {
   text-align: center;
   white-space: nowrap;
 }
+
 
