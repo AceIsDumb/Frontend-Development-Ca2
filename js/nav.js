@@ -34,14 +34,16 @@
     if (!existingBackdrop) {
       var backdrop = document.createElement('div');
       backdrop.id = 'nav-backdrop';
-      backdrop.className = 'hidden fixed inset-0 bg-navy/50 z-40';
+      // start hidden via opacity and pointer-events; we'll animate opacity
+      backdrop.className = 'fixed inset-0 bg-navy/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300';
       document.body.appendChild(backdrop);
     }
 
     if (!existingDrawer) {
       var drawer = document.createElement('aside');
       drawer.id = 'nav-drawer';
-      drawer.className = 'hidden fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface flex flex-col';
+      // start off-screen to the right and animate with translate-x classes
+      drawer.className = 'fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] bg-surface transform translate-x-full transition-transform duration-300 flex flex-col';
 
       var itemsHtml = navLinks
         .map(function (item) {
@@ -105,15 +107,25 @@
     openButton.setAttribute('aria-expanded', 'false');
 
     function openDrawer() {
-      backdrop.classList.remove('hidden');
-      drawer.classList.remove('hidden');
+      // show backdrop (fade in)
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      backdrop.classList.add('opacity-100');
+      // slide drawer in
+      drawer.classList.remove('translate-x-full');
+      drawer.classList.add('translate-x-0');
+
       openButton.setAttribute('aria-expanded', 'true');
       document.body.classList.add('overflow-hidden');
     }
 
     function closeDrawer() {
-      backdrop.classList.add('hidden');
-      drawer.classList.add('hidden');
+      // fade backdrop out
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      // slide drawer out
+      drawer.classList.remove('translate-x-0');
+      drawer.classList.add('translate-x-full');
+
       openButton.setAttribute('aria-expanded', 'false');
       document.body.classList.remove('overflow-hidden');
     }
@@ -125,12 +137,14 @@
     drawer.addEventListener('click', function (event) {
       var navLink = event.target.closest('a[href]');
       if (navLink) {
+        // let native navigation happen, but close the drawer with animation
         closeDrawer();
       }
     });
 
     document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && !drawer.classList.contains('hidden')) {
+      // close on ESC if drawer is visible
+      if (event.key === 'Escape' && drawer.classList.contains('translate-x-0')) {
         closeDrawer();
       }
     });
