@@ -181,3 +181,51 @@ body {
   background-color: #E7EAF0;
   border-color: #16233B;
 }
+
+/* -------------------- responsive: mobile & tablet adjustments -------------------- */
+/* These overrides improve readability and layout on narrow viewports
+   without changing the existing Tailwind markup. Mobile-first rules
+   keep the site usable on phones and tablets. */
+@media (max-width: 640px) {
+  /* Reduce the large hero height applied with Tailwind's arbitrary class */
+  .h-\[85vh\] {
+    height: 60vh !important;
+  }
+  .min-h-\[560px\] {
+    min-height: 320px !important;
+  }
+
+  /* Tighter site padding on small screens (overrides px-8) */
+  .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Scale down headings for legibility on phones */
+  .heading-xl { font-size: 1.75rem !important; line-height: 1.15; }
+  .heading-lg { font-size: 1.25rem !important; }
+  .heading-md { font-size: 1rem !important; }
+
+  /* Slightly smaller buttons so they fit comfortably on narrow screens */
+  .btn-primary, .btn-secondary {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Booking form: make the action button span the full width */
+  #booking-form button[type="submit"] {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  /* Help hero text remain readable on top of the image */
+  /* targets the inner content div that follows the hero-overlay */
+  .hero-overlay + .relative .font-serif,
+  .hero-overlay + .relative p,
+  .hero-overlay + .relative h1 {
+    color: #F7F4EC;
+  }
+
+  /* Reduce tall placeholder image heights used in the layout */
+  .img-placeholder.h-80 { height: 14rem !important; }
+}
