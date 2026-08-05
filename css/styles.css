@@ -187,14 +187,6 @@ body {
    without changing the existing Tailwind markup. Mobile-first rules
    keep the site usable on phones and tablets. */
 @media (max-width: 640px) {
-  /* Reduce the large hero height applied with Tailwind's arbitrary class */
-  .h-\[85vh\] {
-    height: 60vh !important;
-  }
-  .min-h-\[560px\] {
-    min-height: 320px !important;
-  }
-
   /* Tighter site padding on small screens (overrides px-8) */
   .max-w-7xl {
     padding-left: 1rem !important;
@@ -228,4 +220,14 @@ body {
 
   /* Reduce tall placeholder image heights used in the layout */
   .img-placeholder.h-80 { height: 14rem !important; }
+}
+
+/* Room details tab switcher: make tabs equal width so the selector
+   doesn't look uneven when room names differ in length */
+[role="tablist"] { display: inline-flex; }
+[role="tablist"] .js-room-tab {
+  flex: 1 1 0;
+  min-width: 9rem;
+  text-align: center;
+  white-space: nowrap;
 }
