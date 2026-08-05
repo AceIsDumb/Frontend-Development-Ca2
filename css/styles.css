@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------
+﻿/* -------------------------------------------------------------
    shared stylesheet - loaded on every page
    this is where we keep stuff that isn't just a tailwind utility
    class, so we don't repeat long class strings everywhere.
@@ -220,6 +220,23 @@ body {
 
   /* Reduce tall placeholder image heights used in the layout */
   .img-placeholder.h-80 { height: 14rem !important; }
+
+  /* Room tabs: fit all options in one row with equal widths on mobile */
+  [role="tablist"] {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  [role="tablist"] .js-room-tab {
+    min-width: 0;
+    width: 100%;
+    padding: 0.6rem 0.4rem !important;
+    font-size: 0.8rem !important;
+    line-height: 1.1;
+    white-space: normal;
+  }
 }
 
 /* Room details tab switcher: make tabs equal width so the selector
@@ -231,3 +248,4 @@ body {
   text-align: center;
   white-space: nowrap;
 }
+
