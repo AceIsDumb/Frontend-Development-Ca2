@@ -17,7 +17,7 @@
 <!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">Hotel Logo</div>
+    <div class="font-serif text-2xl text-navy">The Merde</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
@@ -41,9 +41,9 @@
     <div class="img-placeholder absolute inset-0">hero photo — hero-home.jpg</div>
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-20 w-full">
-      <p class="eyebrow text-cream/70 mb-4">welcome</p>
-      <h1 class="font-serif text-cream text-5xl md:text-6xl leading-tight max-w-2xl">a quiet stay, thoughtfully kept</h1>
-      <p class="mt-5 max-w-md text-cream/80">comfortable rooms, considered service, and a setting built for slowing down.</p>
+      <p class="eyebrow text-cream/70 mb-4">Accueillir!</p>
+      <h1 class="font-serif text-cream text-5xl md:text-6xl leading-tight max-w-2xl">Come for the experience, stay for the smells.</h1>
+      <p class="mt-5 max-w-md text-cream/80">Comfortable rooms, award-winning service, and a setting built for a slower pace.</p>
       <div class="mt-8 flex gap-4">
         <a href="#check-availability" class="btn-primary">Check Availability</a>
         <a href="rooms.html" class="btn-secondary">Explore Rooms</a>
@@ -54,10 +54,10 @@
   <!-- intro -->
   <section class="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
     <div>
-      <p class="eyebrow mb-4">welcome</p>
-      <h2 class="heading-lg mb-6">not just a place to sleep</h2>
-      <p class="text-stone leading-relaxed mb-4">every room is designed around comfort and quiet — clean lines, warm materials, and a palette that stays out of the way of a good night's rest.</p>
-      <p class="text-stone leading-relaxed">our team keeps things simple: attentive service, a kitchen that cares about what it serves, and a building that feels calm the moment you walk in.</p>
+      <p class="eyebrow mb-4">Why choose us?</p>
+      <h2 class="heading-lg mb-6">Not just a place to sleep after a long day of exploring.</h2>
+      <p class="text-stone leading-relaxed mb-4">All our rooms are designed around the idea of comfort - clean lines, warm bedsheets, and a palette that stays out of the way of a good night's rest.</p>
+      <p class="text-stone leading-relaxed">Our professional staff keeps things simple: attentive and warm service, a kitchen that cares about what it serves, and a building that feels calm the moment you walk in.</p>
     </div>
     <div class="img-placeholder h-80">intro photo — intro-home.jpg</div>
   </section>
@@ -66,8 +66,8 @@
   <section class="max-w-7xl mx-auto px-8 pb-24">
     <div class="flex items-end justify-between mb-10">
       <div>
-        <p class="eyebrow mb-3">featured rooms</p>
-        <h2 class="heading-lg">where you'll wake up</h2>
+        <p class="eyebrow mb-3">Our featured rooms</p>
+        <h2 class="heading-lg">Wake up feeling refreshed for another day of exploration.</h2>
       </div>
       <a href="rooms.html" class="text-sm text-navy underline underline-offset-4 hidden sm:block">view all rooms</a>
     </div>
@@ -75,19 +75,19 @@
       <div>
         <div class="img-placeholder h-64 mb-4">room photo — room-1.jpg</div>
         <h3 class="heading-md mb-1">Standard Room</h3>
-        <p class="text-stone text-sm mb-2">queen bed, city view, 26 sqm</p>
+        <p class="text-stone text-sm mb-2">A queen bed, views of the city, 26 sqm</p>
         <p class="text-navy font-medium">from $150 / night</p>
       </div>
       <div>
         <div class="img-placeholder h-64 mb-4">room photo — room-2.jpg</div>
         <h3 class="heading-md mb-1">Deluxe Room</h3>
-        <p class="text-stone text-sm mb-2">king bed, balcony, 32 sqm</p>
+        <p class="text-stone text-sm mb-2">A bed fit for a king, a balcony view overlooking the city, 32 sqm</p>
         <p class="text-navy font-medium">from $220 / night</p>
       </div>
       <div>
         <div class="img-placeholder h-64 mb-4">room photo — room-3.jpg</div>
         <h3 class="heading-md mb-1">Suite</h3>
-        <p class="text-stone text-sm mb-2">king bed, separate lounge, 45 sqm</p>
+        <p class="text-stone text-sm mb-2">A room fit for a gentleman, includes a lounge and jacuzzi, 45 sqm</p>
         <p class="text-navy font-medium">from $310 / night</p>
       </div>
     </div>
@@ -96,17 +96,17 @@
   <!-- quick booking widget -->
   <section id="check-availability" class="max-w-5xl mx-auto px-8 pb-24 scroll-mt-24">
     <div class="bg-navy rounded-3xl p-8 md:p-10">
-      <p class="font-serif text-cream text-xl mb-6">check availability</p>
+      <p class="font-serif text-cream text-xl mb-6">Check availability</p>
       <form id="booking-form" class="grid md:grid-cols-5 gap-4 items-start" novalidate>
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="checkin">check in</label>
           <input id="checkin" type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
-          <p class="field-error-msg">please pick a check-in date.</p>
+          <p class="field-error-msg">Please pick a check-in date.</p>
         </div>
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="checkout">check out</label>
           <input id="checkout" type="date" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
-          <p class="field-error-msg">must be after check-in.</p>
+          <p class="field-error-msg">Must be after check-in.</p>
         </div>
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="guests">guests</label>
@@ -120,10 +120,10 @@
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="roomtype">room type</label>
           <select id="roomtype" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
-            <option>any</option>
-            <option>standard</option>
-            <option>deluxe</option>
-            <option>suite</option>
+            <option>Any</option>
+            <option>Standard</option>
+            <option>Deluxe</option>
+            <option>Suite</option>
           </select>
         </div>
         <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white mt-2">search</button>
@@ -138,7 +138,7 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
+      <div class="font-serif text-2xl text-cream mb-3">The Merde</div>
       <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
     </div>
     <div>
