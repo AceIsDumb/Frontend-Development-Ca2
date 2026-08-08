@@ -17,12 +17,12 @@
 <!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="booking.html" class="btn-primary">Book Now</a>
+      <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            no click logic yet, just the markup/placement for now -->
       <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
@@ -42,8 +42,9 @@
     <div class="img-placeholder absolute inset-0">page banner photo — hero-gallery.jpg</div>
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
-      <p class="eyebrow text-cream/70 mb-3">take a look around</p>
-      <h1 class="font-serif text-cream text-4xl">gallery</h1>
+      <p class="eyebrow text-cream/70 mb-3">Take a look around · jetez un œil</p>
+      <h1 class="font-serif text-cream text-4xl">Gallery</h1>
+      <h2 class="font-serif text-cream text-4x1">Galerie</h2>
     </div>
   </section>
 
@@ -53,12 +54,12 @@
          and data-filter attributes so it's ready to hook up later.
          "all" is styled as the active one by default -->
     <div class="flex items-center justify-between flex-wrap gap-4 mb-10">
-      <h2 class="heading-lg">browse by category</h2>
+      <h2 class="heading-lg">Browse by category · Parcourir par catégorie</h2>
       <div role="radiogroup" aria-label="filter gallery by category" class="flex flex-wrap gap-3">
-        <button type="button" role="radio" aria-checked="true" data-filter="all" class="btn-primary text-sm">all</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="rooms" class="btn-secondary text-sm">rooms</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="hotel" class="btn-secondary text-sm">hotel</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="surroundings" class="btn-secondary text-sm">surroundings</button>
+        <button type="button" role="radio" aria-checked="true" data-filter="all" class="btn-primary text-sm">All</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="rooms" class="btn-secondary text-sm">Rooms</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="hotel" class="btn-secondary text-sm">Hotel</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="surroundings" class="btn-secondary text-sm">Surroundings</button>
       </div>
     </div>
 
@@ -73,47 +74,47 @@
 
       <figure data-category="rooms">
         <div class="img-placeholder h-56 mb-3">room photo — room-standard.jpg</div>
-        <figcaption class="text-sm text-stone">standard room</figcaption>
+        <figcaption class="text-sm text-stone">Chambre Standard</figcaption>
       </figure>
 
       <figure data-category="rooms">
         <div class="img-placeholder h-56 mb-3">room photo — room-deluxe.jpg</div>
-        <figcaption class="text-sm text-stone">deluxe room</figcaption>
+        <figcaption class="text-sm text-stone">Chambre Deluxe</figcaption>
       </figure>
 
       <figure data-category="rooms">
         <div class="img-placeholder h-56 mb-3">room photo — room-suite.jpg</div>
-        <figcaption class="text-sm text-stone">suite</figcaption>
+        <figcaption class="text-sm text-stone">Suite</figcaption>
       </figure>
 
       <figure data-category="hotel">
         <div class="img-placeholder h-56 mb-3">hotel photo — hotel-lobby.jpg</div>
-        <figcaption class="text-sm text-stone">lobby</figcaption>
+        <figcaption class="text-sm text-stone">Lobby · Hall</figcaption>
       </figure>
 
       <figure data-category="hotel">
         <div class="img-placeholder h-56 mb-3">hotel photo — hotel-restaurant.jpg</div>
-        <figcaption class="text-sm text-stone">restaurant</figcaption>
+        <figcaption class="text-sm text-stone">Restuarant</figcaption>
       </figure>
 
       <figure data-category="hotel">
         <div class="img-placeholder h-56 mb-3">hotel photo — hotel-pool.jpg</div>
-        <figcaption class="text-sm text-stone">pool</figcaption>
+        <figcaption class="text-sm text-stone">Pool · Piscine</figcaption>
       </figure>
 
       <figure data-category="surroundings">
         <div class="img-placeholder h-56 mb-3">surroundings photo — surroundings-garden.jpg</div>
-        <figcaption class="text-sm text-stone">garden courtyard</figcaption>
+        <figcaption class="text-sm text-stone">Garden Courtyard · Cour Jardin</figcaption>
       </figure>
 
       <figure data-category="surroundings">
         <div class="img-placeholder h-56 mb-3">surroundings photo — surroundings-street.jpg</div>
-        <figcaption class="text-sm text-stone">neighbourhood</figcaption>
+        <figcaption class="text-sm text-stone">Neighbourhood · Quartier</figcaption>
       </figure>
 
       <figure data-category="surroundings">
         <div class="img-placeholder h-56 mb-3">surroundings photo — surroundings-view.jpg</div>
-        <figcaption class="text-sm text-stone">rooftop view</figcaption>
+        <figcaption class="text-sm text-stone">Rooftop View · Vue Sur Les Toits</figcaption>
       </figure>
 
     </div>
@@ -124,41 +125,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <script src="js/nav.js"></script>
