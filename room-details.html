@@ -13,12 +13,12 @@
 
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="booking.html" class="btn-primary">Book Now</a>
+      <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            no click logic yet, just the markup/placement for now -->
       <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
@@ -35,12 +35,12 @@
 
     <!-- breadcrumb + room selector tabs -->
     <div>
-      <p class="eyebrow mb-3"><a href="rooms.html" class="hover:text-navy">rooms &amp; suites</a> / room detail</p>
-      <div class="text-sm font-medium mb-3 text-stone">select a room</div>
+      <p class="eyebrow mb-3"><a href="rooms.html" class="hover:text-navy">Rooms &amp; Suites</a> / Room Detail</p>
+      <div class="text-sm font-medium mb-3 text-stone">Select a Room </div>
       <!-- tabs, styling shows the current room; not wired to switch content -->
       <div role="tablist" aria-label="Room type" class="inline-flex gap-2 bg-navytint p-1 rounded-lg">
-        <a role="tab" aria-selected="true" href="room-details.html" data-room="standard" class="js-room-tab btn-primary !rounded-md !py-2 !px-5">Standard Room</a>
-        <a role="tab" aria-selected="false" href="room-details.html" data-room="deluxe" class="js-room-tab btn-secondary !rounded-md !py-2 !px-5">Deluxe Room</a>
+        <a role="tab" aria-selected="true" href="room-details.html" data-room="standard" class="js-room-tab btn-primary !rounded-md !py-2 !px-5">Chambre Standard</a>
+        <a role="tab" aria-selected="false" href="room-details.html" data-room="deluxe" class="js-room-tab btn-secondary !rounded-md !py-2 !px-5">Chambre Deluxe</a>
         <a role="tab" aria-selected="false" href="room-details.html" data-room="suite" class="js-room-tab btn-secondary !rounded-md !py-2 !px-5">Suite</a>
       </div>
     </div>
@@ -61,7 +61,7 @@
       <!-- room info -->
       <div class="md:col-span-2 space-y-8">
         <div class="flex items-center justify-between">
-          <h1 class="js-room-title heading-lg">Standard Room</h1>
+          <h1 class="js-room-title heading-lg">Chambre Standard</h1>
           <p class="js-room-price heading-lg !text-2xl">$150 / night</p>
         </div>
         <p class="js-room-blurb text-stone leading-relaxed">queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night's rest. quiet enough to work in, comfortable enough to do nothing at all.</p>
@@ -113,7 +113,7 @@
 
       <!-- booking cta card -->
       <form novalidate class="js-room-booking-form bg-surface border border-border rounded-2xl p-6 h-fit space-y-4">
-        <p class="js-room-cta-title heading-md text-base">book: Standard Room</p>
+        <p class="js-room-cta-title heading-md text-base">book: Chambre Standard</p>
         <div>
           <label class="field-label" for="rd-checkin">check in</label>
           <input type="date" id="rd-checkin" name="checkin" class="js-checkin field-input">
@@ -133,42 +133,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
-      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <script src="js/booking-forms.js"></script>

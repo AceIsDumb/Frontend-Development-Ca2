@@ -264,10 +264,10 @@ function initRoomDetailsForm() {
 
 const ROOMS = {
   standard: {
-    name: 'Standard Room',
+    name: 'Chambre Standard',
     price: '$150 / night',
     photo: 'main photo — room-standard-main.jpg',
-    blurb: 'queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
+    blurb: 'A queen bed, views of the city, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
     specs: [
       { icon: 'm²', label: '26 sqm' },
       { icon: 'bed', label: 'queen bed' },
@@ -282,10 +282,10 @@ const ROOMS = {
     ]
   },
   deluxe: {
-    name: 'Deluxe Room',
+    name: 'Chambre Deluxe',
     price: '$220 / night',
     photo: 'main photo — room-deluxe-main.jpg',
-    blurb: 'king bed, private balcony, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
+    blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
     specs: [
       { icon: 'm²', label: '32 sqm' },
       { icon: 'bed', label: 'king bed' },
@@ -303,12 +303,12 @@ const ROOMS = {
     name: 'Suite',
     price: '$310 / night',
     photo: 'main photo — room-suite-main.jpg',
-    blurb: 'king bed, separate lounge, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed.',
+    blurb: 'A room fit for a party, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
     specs: [
       { icon: 'm²', label: '45 sqm' },
       { icon: 'bed', label: 'king bed' },
-      { icon: '3', label: 'sleeps 3' },
-      { icon: '~', label: 'lounge area' }
+      { icon: '5', label: 'sleeps 5' },
+      { icon: '~', label: 'lounge area and jacuzzi' }
     ],
     amenities: [
       { icon: 'wifi', label: 'free high-speed wifi' },
