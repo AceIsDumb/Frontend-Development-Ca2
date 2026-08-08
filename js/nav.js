@@ -1,18 +1,18 @@
 // Shared mobile navigation drawer behavior across all pages.
 (function () {
   var navLinks = [
-    { href: 'index.html', label: 'home' },
-    { href: 'about.html', label: 'about us' },
-    { href: 'rooms.html', label: 'rooms & suites' },
-    { href: 'room-details.html', label: 'room detail' },
-    { href: 'amenities.html', label: 'amenities' },
-    { href: 'gallery.html', label: 'gallery' },
-    { href: 'booking.html', label: 'booking' },
-    { href: 'offers.html', label: 'offers' },
-    { href: 'reviews.html', label: 'reviews' },
-    { href: 'faq.html', label: 'faq' },
-    { href: 'contact.html', label: 'location / contact' },
-    { href: 'things-to-do.html', label: 'things to do' }
+    { href: 'index.html', label: 'Home' },
+    { href: 'about.html', label: 'About Us' },
+    { href: 'rooms.html', label: 'Rooms & Suites' },
+    { href: 'room-details.html', label: 'Room Detail' },
+    { href: 'amenities.html', label: 'Amenities' },
+    { href: 'gallery.html', label: 'Gallery' },
+    { href: 'booking.html', label: 'Booking' },
+    { href: 'offers.html', label: 'Offers' },
+    { href: 'reviews.html', label: 'Reviews' },
+    { href: 'faq.html', label: 'Frequently Asked Questions' },
+    { href: 'contact.html', label: 'Location / Contact' },
+    { href: 'things-to-do.html', label: 'Things to Do' }
   ];
 
   function getCurrentPage() {
