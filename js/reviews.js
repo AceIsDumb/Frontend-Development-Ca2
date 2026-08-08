@@ -32,16 +32,21 @@ filterButtons.forEach(function (button) {
       }
     });
 
-    if (reviewCount) {
+if (reviewCount) {
       // "1 review" instead of "1 reviews"
       const wordForReviews = visibleCount === 1 ? 'review' : 'reviews';
 
+      // spell the rating out, otherwise the count and the rating end up
+      // as two numbers side by side — "showing 2 4 star reviews"
+      const ratingWords = { '5': 'five-star', '4': 'four-star' };
+      const ratingWord = ratingWords[selected];
+
       if (selected === 'all') {
-        reviewCount.textContent = 'showing all ' + visibleCount + ' ' + wordForReviews;
+        reviewCount.textContent = 'Showing all ' + visibleCount + ' ' + wordForReviews;
       } else if (visibleCount === 0) {
-        reviewCount.textContent = 'no ' + selected + ' star reviews yet';
+        reviewCount.textContent = 'No ' + ratingWord + ' reviews yet';
       } else {
-        reviewCount.textContent = 'showing ' + visibleCount + ' ' + selected + ' star ' + wordForReviews;
+        reviewCount.textContent = 'Showing ' + visibleCount + ' ' + wordForReviews + ' rated ' + selected + ' stars';
       }
     }
   });

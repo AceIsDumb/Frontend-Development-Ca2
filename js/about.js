@@ -13,7 +13,7 @@ if (storyToggle && storyMore) {
     const isOpening = storyMore.classList.contains('hidden');
 
     storyMore.classList.toggle('hidden', !isOpening);
-    storyToggle.textContent = isOpening ? 'read less' : 'read more';
+    storyToggle.textContent = isOpening ? 'Read Less' : 'Read More';
 
     // aria-expanded tells a screen reader whether the block is open
     storyToggle.setAttribute('aria-expanded', isOpening);
