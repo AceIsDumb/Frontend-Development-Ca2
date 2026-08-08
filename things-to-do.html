@@ -13,12 +13,12 @@
 
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="#" class="btn-primary">Book Now</a>
+      <a href="#" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            no click logic yet, just the markup/placement for now -->
       <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
@@ -37,8 +37,8 @@
     <div class="img-placeholder absolute inset-0">page banner photo — hero-things-to-do.jpg</div>
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
-      <p class="eyebrow text-cream/70 mb-3">nearby</p>
-      <h1 class="font-serif text-cream text-4xl">things to do</h1>
+      <p class="eyebrow text-cream/70 mb-3">Nearby · à proximité</p>
+      <h1 class="font-serif text-cream text-4xl">Things to Do · À Faire</h1>
     </div>
   </section>
 
@@ -47,8 +47,8 @@
     <!-- map + location list. clicking a pin or a list row highlights
          the matching pair, wired up in things-to-do.js -->
     <div>
-      <p class="eyebrow mb-3">around the hotel</p>
-      <h2 class="heading-lg mb-8">a map of what's close by</h2>
+      <p class="eyebrow mb-3">Around the Hotel · autour de l'hôtel</p>
+      <h2 class="heading-lg mb-8">Around the Hotel</h2>
 
       <div class="grid md:grid-cols-5 gap-6">
         <div class="md:col-span-3">
@@ -68,44 +68,44 @@
           <div data-loc="1" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">1</div>
-              <span class="text-sm">tide pools walk</span>
+              <span class="text-sm">Tide Pools Walk</span>
             </div>
-            <span class="text-stone text-xs">5 min</span>
+            <span class="text-stone text-xs">5 minutes</span>
           </div>
           <div data-loc="2" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">2</div>
-              <span class="text-sm">local farmers market</span>
+              <span class="text-sm">Local Farmers Market</span>
             </div>
-            <span class="text-stone text-xs">10 min</span>
+            <span class="text-stone text-xs">10 minutes</span>
           </div>
           <div data-loc="3" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">3</div>
-              <span class="text-sm">coastal hiking trail</span>
+              <span class="text-sm">Coastal Hiking Trail</span>
             </div>
-            <span class="text-stone text-xs">15 min</span>
+            <span class="text-stone text-xs">15 minutes</span>
           </div>
           <div data-loc="4" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">4</div>
-              <span class="text-sm">old town harbour</span>
+              <span class="text-sm">Old Town Harbour</span>
             </div>
-            <span class="text-stone text-xs">8 min</span>
+            <span class="text-stone text-xs">8 minutes</span>
           </div>
           <div data-loc="5" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">5</div>
-              <span class="text-sm">lighthouse viewpoint</span>
+              <span class="text-sm">Lighthouse Viewpoint</span>
             </div>
-            <span class="text-stone text-xs">20 min</span>
+            <span class="text-stone text-xs">20 minutes</span>
           </div>
           <div data-loc="6" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">6</div>
-              <span class="text-sm">local seafood shack</span>
+              <span class="text-sm">Local Seafood Shack</span>
             </div>
-            <span class="text-stone text-xs">6 min</span>
+            <span class="text-stone text-xs">6 minutes</span>
           </div>
         </div>
       </div>
@@ -113,55 +113,55 @@
 
     <!-- activity cards -->
     <div>
-      <p class="eyebrow mb-3">nearby</p>
-      <h2 class="heading-lg mb-8">things to do nearby</h2>
+      <p class="eyebrow mb-3">nearby · à proximité</p>
+      <h2 class="heading-lg mb-8">Things to do nearby</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-1.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">tide pools walk</h3>
+            <h3 class="heading-md mb-1">Tide Pools Walk</h3>
             <p class="text-stone text-sm mb-2">a short walk along the shore, best at low tide.</p>
-            <span class="text-navy text-xs font-medium">5 min from hotel</span>
+            <span class="text-navy text-xs font-medium">5 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-2.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">farmers market</h3>
+            <h3 class="heading-md mb-1">Farmers' Market</h3>
             <p class="text-stone text-sm mb-2">local produce and crafts, open weekends.</p>
-            <span class="text-navy text-xs font-medium">10 min from hotel</span>
+            <span class="text-navy text-xs font-medium">10 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-3.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">coastal hiking trail</h3>
-            <p class="text-stone text-sm mb-2">an easy 3km loop with a lookout point.</p>
-            <span class="text-navy text-xs font-medium">15 min from hotel</span>
+            <h3 class="heading-md mb-1">Coastal Hiking Trail</h3>
+            <p class="text-stone text-sm mb-2">An easy 3km loop with a lookout point.</p>
+            <span class="text-navy text-xs font-medium">15 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-4.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">old town harbour</h3>
-            <p class="text-stone text-sm mb-2">fishing boats, small shops, a nice sunset spot.</p>
-            <span class="text-navy text-xs font-medium">8 min from hotel</span>
+            <h3 class="heading-md mb-1">Old Town Harbour</h3>
+            <p class="text-stone text-sm mb-2">Fishing boats, small shops, a nice sunset spot to reflect.</p>
+            <span class="text-navy text-xs font-medium">8 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-5.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">lighthouse viewpoint</h3>
-            <p class="text-stone text-sm mb-2">the best view of the coastline, worth the climb.</p>
-            <span class="text-navy text-xs font-medium">20 min from hotel</span>
+            <h3 class="heading-md mb-1">Lighthouse Viewpoint</h3>
+            <p class="text-stone text-sm mb-2">One of the best views of the coastline, worth the climb.</p>
+            <span class="text-navy text-xs font-medium">20 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
           <div class="img-placeholder h-40 rounded-none">activity photo — activity-6.jpg</div>
           <div class="p-4">
-            <h3 class="heading-md mb-1">local seafood shack</h3>
-            <p class="text-stone text-sm mb-2">casual spot for the day's catch, cash only.</p>
-            <span class="text-navy text-xs font-medium">6 min from hotel</span>
+            <h3 class="heading-md mb-1">Local Seafood Shack</h3>
+            <p class="text-stone text-sm mb-2">A great spot to have fresh seafood with friends and family.</p>
+            <span class="text-navy text-xs font-medium">6 minutes from hotel</span>
           </div>
         </div>
       </div>
@@ -174,41 +174,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <!-- shared nav drawer logic, same file on every page -->
