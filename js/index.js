@@ -6,7 +6,14 @@
   if (form) {
     var checkin = document.getElementById('checkin');
     var checkout = document.getElementById('checkout');
+    var guests = document.getElementById('guests');
+    var roomtype = document.getElementById('roomtype');
     var status = document.getElementById('booking-status');
+    var ROOM_CAPACITY = {
+      standard: 2,
+      deluxe: 3,
+      suite: 5
+    };
 
     function setError(field, hasError) {
       var msg = field.parentElement.querySelector('.field-error-msg');
@@ -15,6 +22,68 @@
         msg.classList.toggle('visible', hasError);
       }
       return hasError;
+    }
+
+    function getGuestCount(guestValue) {
+      if (guestValue === 'family') return 4;
+      return Number(guestValue) || 0;
+    }
+
+    function syncRoomOptionsWithGuests() {
+      if (!guests || !roomtype) return;
+
+      var selectedGuests = getGuestCount(guests.value);
+
+      Array.prototype.forEach.call(roomtype.options, function (option) {
+        if (option.value === 'any') {
+          option.disabled = false;
+          return;
+        }
+
+        var capacity = ROOM_CAPACITY[option.value] || 0;
+        option.disabled = selectedGuests > capacity;
+      });
+
+      var selectedRoomOption = roomtype.options[roomtype.selectedIndex];
+      if (selectedRoomOption && selectedRoomOption.disabled) {
+        roomtype.value = 'any';
+      }
+    }
+
+    function syncGuestOptionsWithRoom() {
+      if (!guests || !roomtype) return;
+
+      var selectedRoom = roomtype.value;
+      var selectedCapacity = ROOM_CAPACITY[selectedRoom];
+
+      Array.prototype.forEach.call(guests.options, function (option) {
+        var guestCount = getGuestCount(option.value);
+        option.disabled = selectedCapacity ? guestCount > selectedCapacity : false;
+      });
+
+      var selectedGuestOption = guests.options[guests.selectedIndex];
+      if (selectedGuestOption && selectedGuestOption.disabled) {
+        Array.prototype.some.call(guests.options, function (option) {
+          if (!option.disabled) {
+            guests.value = option.value;
+            return true;
+          }
+          return false;
+        });
+      }
+    }
+
+    if (guests && roomtype) {
+      guests.addEventListener('change', function () {
+        syncRoomOptionsWithGuests();
+      });
+
+      roomtype.addEventListener('change', function () {
+        syncGuestOptionsWithRoom();
+      });
+
+      syncGuestOptionsWithRoom();
+      syncRoomOptionsWithGuests();
     }
 
     form.addEventListener('submit', function (e) {
@@ -33,7 +102,9 @@
       if (isValid) {
         var params = new URLSearchParams({
           checkin: checkin.value,
-          checkout: checkout.value
+          checkout: checkout.value,
+          guests: guests ? guests.value : '',
+          roomtype: roomtype ? roomtype.value : 'any'
         });
         window.location.href = 'booking.html?' + params.toString();
       } else {

@@ -149,28 +149,35 @@ body {
 
 /* -------------------- map pins (things to do page) -------------------- */
 .map-pin {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 9999px;
   transform: translate(-50%, -50%);
-  background-color: #3B5170;
-  color: #F7F4EC;
+  background-color: #F7F4EC;
+  color: #16233B;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
   font-size: 0.7rem;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #16233B;
   cursor: pointer;
-  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, color 0.15s ease;
 }
 .map-pin:hover {
   background-color: #16233B;
+  color: #F7F4EC;
+  transform: translate(-50%, -50%) scale(1.05);
 }
 /* toggled on by things-to-do.js when its matching list row is active */
 .map-pin.active {
-  background-color: #16233B;
-  box-shadow: 0 0 0 5px rgba(22,35,59,0.2);
+  background-color: #F0C34A;
+  color: #16233B;
+  border-color: #16233B;
+  box-shadow: 0 0 0 4px rgba(247, 244, 236, 0.9), 0 0 0 8px rgba(22, 35, 59, 0.55), 0 5px 14px rgba(0, 0, 0, 0.35);
+  transform: translate(-50%, -50%) scale(1.12);
+  z-index: 2;
 }
 
 .location-item {
@@ -268,5 +275,3 @@ body {
   text-align: center;
   white-space: nowrap;
 }
-
-

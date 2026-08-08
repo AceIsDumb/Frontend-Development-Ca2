@@ -34,7 +34,7 @@
 
   <!-- page header banner, same treatment as the contact page -->
   <section class="relative h-72 flex items-end">
-    <div class="img-placeholder absolute inset-0">page banner photo — hero-things-to-do.jpg</div>
+    <img src="images/hero-things-to-do.jpg" alt="Street scene near the hotel with cafés and shops" class="absolute inset-0 w-full h-full object-cover">
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
       <p class="eyebrow text-cream/70 mb-3">Nearby · à proximité</p>
@@ -52,15 +52,16 @@
 
       <div class="grid md:grid-cols-5 gap-6">
         <div class="md:col-span-3">
-          <div id="map" class="img-placeholder h-96 relative overflow-hidden">
-            <span>map graphic — map-things-to-do.jpg</span>
-            <!-- positions are made up percentages, just eyeballed -->
-            <button data-loc="1" aria-label="tide pools walk" class="map-pin absolute" style="top:22%; left:30%;">1</button>
-            <button data-loc="2" aria-label="local farmers market" class="map-pin absolute" style="top:48%; left:60%;">2</button>
-            <button data-loc="3" aria-label="coastal hiking trail" class="map-pin absolute" style="top:68%; left:22%;">3</button>
-            <button data-loc="4" aria-label="old town harbour" class="map-pin absolute" style="top:35%; left:78%;">4</button>
-            <button data-loc="5" aria-label="lighthouse viewpoint" class="map-pin absolute" style="top:80%; left:65%;">5</button>
-            <button data-loc="6" aria-label="local seafood shack" class="map-pin absolute" style="top:15%; left:58%;">6</button>
+          <div id="map" class="relative overflow-hidden rounded-xl aspect-[4/3] border border-border">
+            <img src="images/map-things-to-do.jpg" alt="aerial photo of the neighbourhood around the hotel, used as a stand-in map with the market, museum, main avenue, cafes, jazz bar and flea market marked" class="w-full h-full object-cover">
+            <!-- pin positions are matched to where each spot actually
+                 sits in the photo (plaza, standout building, avenue, etc) -->
+            <button data-loc="1" aria-label="Rue Cler morning market" class="map-pin absolute" style="top:32%; left:50%;">1</button>
+            <button data-loc="2" aria-label="Le Petit Musée" class="map-pin absolute" style="top:75%; left:80%;">2</button>
+            <button data-loc="3" aria-label="canal-side bike ride" class="map-pin absolute" style="top:18%; left:45%;">3</button>
+            <button data-loc="4" aria-label="pâtisserie and coffee crawl" class="map-pin absolute" style="top:46%; left:28%;">4</button>
+            <button data-loc="5" aria-label="evening jazz bar" class="map-pin absolute" style="top:10%; left:88%;">5</button>
+            <button data-loc="6" aria-label="Sunday flea market" class="map-pin absolute" style="top:70%; left:5%;">6</button>
           </div>
         </div>
 
@@ -68,44 +69,44 @@
           <div data-loc="1" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">1</div>
-              <span class="text-sm">Tide Pools Walk</span>
+              <span class="text-sm">Rue Cler Morning Market</span>
             </div>
             <span class="text-stone text-xs">5 minutes</span>
           </div>
           <div data-loc="2" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">2</div>
-              <span class="text-sm">Local Farmers Market</span>
+              <span class="text-sm">Le Petit Musée</span>
             </div>
-            <span class="text-stone text-xs">10 minutes</span>
+            <span class="text-stone text-xs">12 minutes</span>
           </div>
           <div data-loc="3" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">3</div>
-              <span class="text-sm">Coastal Hiking Trail</span>
+              <span class="text-sm">Canal-Side Bike Ride</span>
             </div>
-            <span class="text-stone text-xs">15 minutes</span>
+            <span class="text-stone text-xs">8 minutes</span>
           </div>
           <div data-loc="4" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">4</div>
-              <span class="text-sm">Old Town Harbour</span>
+              <span class="text-sm">Pâtisserie &amp; Coffee Crawl</span>
             </div>
-            <span class="text-stone text-xs">8 minutes</span>
+            <span class="text-stone text-xs">6 minutes</span>
           </div>
           <div data-loc="5" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">5</div>
-              <span class="text-sm">Lighthouse Viewpoint</span>
+              <span class="text-sm">Evening Jazz Bar</span>
             </div>
-            <span class="text-stone text-xs">20 minutes</span>
+            <span class="text-stone text-xs">15 minutes</span>
           </div>
           <div data-loc="6" class="location-item bg-surface border border-border rounded-lg px-4 py-3 flex items-center justify-between cursor-pointer">
             <div class="flex items-center gap-3">
               <div class="w-7 h-7 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold">6</div>
-              <span class="text-sm">Local Seafood Shack</span>
+              <span class="text-sm">Sunday Flea Market</span>
             </div>
-            <span class="text-stone text-xs">6 minutes</span>
+            <span class="text-stone text-xs">20 minutes</span>
           </div>
         </div>
       </div>
@@ -113,55 +114,55 @@
 
     <!-- activity cards -->
     <div>
-      <p class="eyebrow mb-3">nearby · à proximité</p>
+      <p class="eyebrow mb-3">Nearby · à proximité</p>
       <h2 class="heading-lg mb-8">Things to do nearby</h2>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-1.jpg</div>
+          <img src="images/activity-1.jpg" alt="Rue Cler morning market with fresh produce and flowers" class="w-full h-40 object-cover">
           <div class="p-4">
-            <h3 class="heading-md mb-1">Tide Pools Walk</h3>
-            <p class="text-stone text-sm mb-2">a short walk along the shore, best at low tide.</p>
+            <h3 class="heading-md mb-1">Rue Cler Morning Market</h3>
+            <p class="text-stone text-sm mb-2">a small open-air market — fresh bread, cheese, and flowers. best visited early, before the crowds.</p>
             <span class="text-navy text-xs font-medium">5 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-2.jpg</div>
+          <img src="images/activity-2.jpg" alt="Exterior of Le Petit Musée" class="w-full h-40 object-cover">
           <div class="p-4">
-            <h3 class="heading-md mb-1">Farmers' Market</h3>
-            <p class="text-stone text-sm mb-2">local produce and crafts, open weekends.</p>
-            <span class="text-navy text-xs font-medium">10 minutes from hotel</span>
+            <h3 class="heading-md mb-1">Le Petit Musée</h3>
+            <p class="text-stone text-sm mb-2">an intimate local art museum, easy to see in an hour without feeling rushed.</p>
+            <span class="text-navy text-xs font-medium">12 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-3.jpg</div>
+          <img src="images/activity-3.jpg" alt="Cyclists riding along a canal-side path" class="w-full h-40 object-cover">
           <div class="p-4">
-            <h3 class="heading-md mb-1">Coastal Hiking Trail</h3>
-            <p class="text-stone text-sm mb-2">An easy 3km loop with a lookout point.</p>
-            <span class="text-navy text-xs font-medium">15 minutes from hotel</span>
-          </div>
-        </div>
-        <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-4.jpg</div>
-          <div class="p-4">
-            <h3 class="heading-md mb-1">Old Town Harbour</h3>
-            <p class="text-stone text-sm mb-2">Fishing boats, small shops, a nice sunset spot to reflect.</p>
+            <h3 class="heading-md mb-1">Canal-Side Bike Ride</h3>
+            <p class="text-stone text-sm mb-2">rent a bike and ride along the water, past cafés and rows of plane trees.</p>
             <span class="text-navy text-xs font-medium">8 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-5.jpg</div>
+          <img src="images/activity-4.jpg" alt="Pastries and coffee on a café table" class="w-full h-40 object-cover">
           <div class="p-4">
-            <h3 class="heading-md mb-1">Lighthouse Viewpoint</h3>
-            <p class="text-stone text-sm mb-2">One of the best views of the coastline, worth the climb.</p>
-            <span class="text-navy text-xs font-medium">20 minutes from hotel</span>
+            <h3 class="heading-md mb-1">Pâtisserie &amp; Coffee Crawl</h3>
+            <p class="text-stone text-sm mb-2">a self-guided walk between a few of the neighbourhood's best bakeries and coffee spots.</p>
+            <span class="text-navy text-xs font-medium">6 minutes from hotel</span>
           </div>
         </div>
         <div class="bg-surface border border-border rounded-xl overflow-hidden">
-          <div class="img-placeholder h-40 rounded-none">activity photo — activity-6.jpg</div>
+          <img src="images/activity-5.jpg" alt="Small jazz bar with evening lights" class="w-full h-40 object-cover">
           <div class="p-4">
-            <h3 class="heading-md mb-1">Local Seafood Shack</h3>
-            <p class="text-stone text-sm mb-2">A great spot to have fresh seafood with friends and family.</p>
-            <span class="text-navy text-xs font-medium">6 minutes from hotel</span>
+            <h3 class="heading-md mb-1">Evening Jazz Bar</h3>
+            <p class="text-stone text-sm mb-2">a small, low-lit bar with live jazz a few nights a week — good for a quiet nightcap.</p>
+            <span class="text-navy text-xs font-medium">15 minutes from hotel</span>
+          </div>
+        </div>
+        <div class="bg-surface border border-border rounded-xl overflow-hidden">
+          <img src="images/activity-6.jpg" alt="Open-air Sunday flea market with vintage stalls" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="heading-md mb-1">Sunday Flea Market</h3>
+            <p class="text-stone text-sm mb-2">antiques, vintage finds, and good people-watching — weekends only.</p>
+            <span class="text-navy text-xs font-medium">20 minutes from hotel</span>
           </div>
         </div>
       </div>

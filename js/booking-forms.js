@@ -194,7 +194,9 @@ function prefillFromQueryString(checkinEl, checkoutEl, roomtypeEl) {
   const params = new URLSearchParams(window.location.search);
   const paramCheckin = params.get('checkin');
   const paramCheckout = params.get('checkout');
+  const paramGuests = params.get('guests');
   const paramRoomtype = params.get('roomtype');
+  const guestsEl = document.querySelector('.js-booking-form .js-guests');
 
   if (paramCheckin && ISO_DATE_PATTERN.test(paramCheckin)) {
     checkinEl.value = paramCheckin;
@@ -215,6 +217,17 @@ function prefillFromQueryString(checkinEl, checkoutEl, roomtypeEl) {
 
   if (paramRoomtype && ROOM_KEY_TO_LABEL[paramRoomtype]) {
     roomtypeEl.value = ROOM_KEY_TO_LABEL[paramRoomtype];
+  }
+
+  const GUEST_KEY_TO_LABEL = {
+    '1': '1 adult',
+    '2': '2 adults',
+    '3': '3 adults',
+    family: 'family'
+  };
+
+  if (guestsEl && paramGuests && GUEST_KEY_TO_LABEL[paramGuests]) {
+    guestsEl.value = GUEST_KEY_TO_LABEL[paramGuests];
   }
 }
 

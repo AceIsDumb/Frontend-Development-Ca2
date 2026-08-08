@@ -38,7 +38,7 @@
 
   <!-- hero, big + dark, this is the pattern every page follows -->
   <section class="relative h-[85vh] min-h-[560px] flex items-end">
-    <div class="img-placeholder absolute inset-0">hero photo — hero-home.jpg</div>
+    <img src="images/hero-home.jpg" alt="Hotel exterior view" class="absolute inset-0 w-full h-full object-cover">
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-20 w-full">
       <p class="eyebrow text-cream/70 mb-4">Bienvenue!</p>
@@ -59,7 +59,7 @@
       <p class="text-stone leading-relaxed mb-4">All our rooms are designed around the idea of comfort - clean lines, warm bedsheets, and a palette that stays out of the way of a good night's rest.</p>
       <p class="text-stone leading-relaxed">Our professional staff keeps things simple: attentive and warm service, a kitchen that cares about what it serves, and a building that feels calm the moment you walk in.</p>
     </div>
-    <div class="img-placeholder h-80">intro photo — intro-home.jpg</div>
+    <img src="images/intro-home.jpg" alt="Hotel interior" class="h-80 w-full object-cover rounded-xl">
   </section>
 
   <!-- featured rooms -->
@@ -73,19 +73,19 @@
     </div>
     <div class="grid md:grid-cols-3 gap-8">
       <div>
-        <div class="img-placeholder h-64 mb-4">room photo — room-1.jpg</div>
+        <img src="images/room-standard.jpg" alt="Chambre Standard with queen bed and city view" class="h-64 w-full object-cover rounded-xl mb-4">
         <h3 class="heading-md mb-1">Chambre Standard</h3>
         <p class="text-stone text-sm mb-2">A queen bed, views of the city, 26 sqm</p>
         <p class="text-navy font-medium">from $150 / night</p>
       </div>
       <div>
-        <div class="img-placeholder h-64 mb-4">room photo — room-2.jpg</div>
+        <img src="images/room-deluxe.jpg" alt="Chambre Deluxe with king bed and balcony city view" class="h-64 w-full object-cover rounded-xl mb-4">
         <h3 class="heading-md mb-1">Chambre Deluxe</h3>
         <p class="text-stone text-sm mb-2">A bed fit for a king, a balcony view overlooking the city, 32 sqm</p>
         <p class="text-navy font-medium">from $220 / night</p>
       </div>
       <div>
-        <div class="img-placeholder h-64 mb-4">room photo — room-3.jpg</div>
+        <img src="images/room-suite.jpg" alt="Suite with king bed, lounge and jacuzzi" class="h-64 w-full object-cover rounded-xl mb-4">
         <h3 class="heading-md mb-1">Suite</h3>
         <p class="text-stone text-sm mb-2">A room fit for a party, includes a lounge and jacuzzi, 45 sqm</p>
         <p class="text-navy font-medium">from $310 / night</p>
@@ -111,19 +111,19 @@
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="guests">guests</label>
           <select id="guests" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
-            <option>2 adults</option>
-            <option>1 adult</option>
-            <option>3 adults</option>
-            <option>family</option>
+            <option value="2">2 adults</option>
+            <option value="1">1 adult</option>
+            <option value="3">3 adults</option>
+            <option value="family">family</option>
           </select>
         </div>
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="roomtype">room type</label>
           <select id="roomtype" class="w-full mt-2 bg-cream/10 border border-cream/20 rounded-lg px-3 py-3 text-cream text-sm focus:outline-none focus:border-cream/60">
-            <option>Any</option>
-            <option>Standard</option>
-            <option>Deluxe</option>
-            <option>Suite</option>
+            <option value="any">Any</option>
+            <option value="standard">Standard</option>
+            <option value="deluxe">Deluxe</option>
+            <option value="suite">Suite</option>
           </select>
         </div>
         <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white mt-2">Search</button>
