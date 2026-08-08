@@ -13,12 +13,12 @@
 
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="booking.html" class="btn-primary">Book Now</a>
+      <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            no click logic yet, just the markup/placement for now -->
       <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
@@ -32,55 +32,55 @@
 
 <main>
   <section class="max-w-4xl mx-auto px-8 py-20">
-    <p class="eyebrow mb-3">reserve a room</p>
-    <h1 class="heading-lg mb-8">book your stay</h1>
+    <p class="eyebrow mb-3">Reserve a Room · Réservez une chambre</p>
+    <h1 class="heading-lg mb-8">Book your stay · Votre séjour</h1>
 
     <form novalidate class="js-booking-form bg-surface border border-border rounded-2xl p-8 md:p-10 space-y-8">
 
       <div class="grid sm:grid-cols-2 gap-6">
         <div>
-          <label class="field-label" for="checkin">check in</label>
+          <label class="field-label" for="checkin">Check in · arrivée</label>
           <input type="date" id="checkin" name="checkin" class="js-checkin field-input">
           <p class="field-error-msg" role="alert"></p>
         </div>
         <div>
-          <label class="field-label" for="checkout">check out</label>
+          <label class="field-label" for="checkout">Check out · départ</label>
           <input type="date" id="checkout" name="checkout" class="js-checkout field-input">
           <p class="field-error-msg" role="alert"></p>
         </div>
         <div>
-          <label class="field-label" for="guests">guests</label>
+          <label class="field-label" for="guests">Guests · invités</label>
           <select id="guests" name="guests" class="js-guests field-input">
-            <option>2 adults</option>
             <option>1 adult</option>
+            <option>2 adults</option>
             <option>3 adults</option>
             <option>family</option>
           </select>
         </div>
         <div>
-          <label class="field-label" for="roomtype">room type</label>
+          <label class="field-label" for="roomtype">Room type · type de chambre</label>
           <select id="roomtype" name="roomtype" class="js-roomtype field-input">
-            <option>standard room</option>
-            <option>deluxe room</option>
-            <option>suite</option>
+            <option>Standard Room</option>
+            <option>Deluxe Room</option>
+            <option>Suite</option>
           </select>
         </div>
       </div>
 
       <!-- add-ons -->
       <div>
-        <p class="field-label mb-3">add-ons</p>
+        <p class="field-label mb-3">Add-ons · suppléments</p>
         <div class="flex flex-wrap gap-3">
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">breakfast</button>
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">airport transfer</button>
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">late checkout</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Breakfast</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Airport Transfer</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Late Checkout</button>
         </div>
       </div>
 
       <!-- summary + confirm -->
       <div class="flex items-center justify-between border-t border-border pt-6">
         <p class="heading-md text-base">total: $<span class="js-total-price">150</span></p>
-        <button type="submit" class="btn-primary">confirm booking</button>
+        <button type="submit" class="btn-primary">Confirm Booking</button>
       </div>
 
       <p class="js-booking-confirmation text-sm text-navylight" aria-live="polite"></p>
@@ -91,42 +91,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
       <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <script src="js/booking-forms.js"></script>
