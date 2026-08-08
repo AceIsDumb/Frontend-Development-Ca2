@@ -16,6 +16,6 @@ document.querySelectorAll('[data-amenity-toggle]').forEach(function (button) {
     details.classList.toggle('grid-rows-[0fr]', !isCollapsed);
     details.classList.toggle('grid-rows-[1fr]', isCollapsed);
     chevron.classList.toggle('rotate-180', isCollapsed);
-    label.textContent = isCollapsed ? 'show less' : 'read more';
+    label.textContent = isCollapsed ? 'Show less' : 'Details';
   });
 });
