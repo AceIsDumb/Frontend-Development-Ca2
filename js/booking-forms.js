@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingForm();
   initRoomDetailsForm();
   initRoomTabs();
+  initRoomFromQueryString();
   initRoomCardLinks();
 });
 
@@ -133,7 +134,7 @@ function initBookingForm() {
   // if someone arrived here from room-details.html's quick-booking
   // form, the dates were carried over in the query string — read them
   // back in so the visitor never has to type them a second time.
-  prefillDatesFromQueryString(checkinEl, checkoutEl);
+  prefillFromQueryString(checkinEl, checkoutEl, roomtypeEl);
 
   function updateTotal() {
     const roomKey = roomtypeEl.value.trim().toLowerCase();
@@ -189,10 +190,11 @@ function initBookingForm() {
   updateTotal();
 }
 
-function prefillDatesFromQueryString(checkinEl, checkoutEl) {
+function prefillFromQueryString(checkinEl, checkoutEl, roomtypeEl) {
   const params = new URLSearchParams(window.location.search);
   const paramCheckin = params.get('checkin');
   const paramCheckout = params.get('checkout');
+  const paramRoomtype = params.get('roomtype');
 
   if (paramCheckin && ISO_DATE_PATTERN.test(paramCheckin)) {
     checkinEl.value = paramCheckin;
@@ -200,6 +202,19 @@ function prefillDatesFromQueryString(checkinEl, checkoutEl) {
 
   if (paramCheckout && ISO_DATE_PATTERN.test(paramCheckout)) {
     checkoutEl.value = paramCheckout;
+  }
+
+  // roomtype comes from room-details.html's tab data-room values
+  // (standard/deluxe/suite) but the <select> options are full labels
+  // ("standard room", "deluxe room", "suite") — map between them
+  const ROOM_KEY_TO_LABEL = {
+    standard: 'standard room',
+    deluxe: 'deluxe room',
+    suite: 'suite'
+  };
+
+  if (paramRoomtype && ROOM_KEY_TO_LABEL[paramRoomtype]) {
+    roomtypeEl.value = ROOM_KEY_TO_LABEL[paramRoomtype];
   }
 }
 
@@ -227,24 +242,90 @@ function initRoomDetailsForm() {
       return;
     }
 
+    const activeTab = document.querySelector('.js-room-tab[aria-selected="true"]');
+    const roomKey = activeTab ? activeTab.dataset.room : 'standard';
+
     const params = new URLSearchParams({
       checkin: checkinEl.value,
-      checkout: checkoutEl.value
+      checkout: checkoutEl.value,
+      roomtype: roomKey
     });
     window.location.href = `booking.html?${params.toString()}`;
   });
 }
 
+
+
+/* -----------------------------------------------------------------
+   room-details.html — room data
+   One entry per room type, keyed to match each tab's data-room
+   value. Used to rebuild the page content when a tab is clicked.
+----------------------------------------------------------------- */
+
+const ROOMS = {
+  standard: {
+    name: 'Standard Room',
+    price: '$150 / night',
+    photo: 'main photo — room-standard-main.jpg',
+    blurb: 'queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
+    specs: [
+      { icon: 'm²', label: '26 sqm' },
+      { icon: 'bed', label: 'queen bed' },
+      { icon: '2', label: 'sleeps 2' },
+      { icon: '~', label: 'city view' }
+    ],
+    amenities: [
+      { icon: 'wifi', label: 'free high-speed wifi' },
+      { icon: 'ac', label: 'air conditioning' },
+      { icon: 'tv', label: 'smart tv' },
+      { icon: 'cup', label: 'coffee & tea station' }
+    ]
+  },
+  deluxe: {
+    name: 'Deluxe Room',
+    price: '$220 / night',
+    photo: 'main photo — room-deluxe-main.jpg',
+    blurb: 'king bed, private balcony, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
+    specs: [
+      { icon: 'm²', label: '32 sqm' },
+      { icon: 'bed', label: 'king bed' },
+      { icon: '2', label: 'sleeps 2' },
+      { icon: '~', label: 'balcony view' }
+    ],
+    amenities: [
+      { icon: 'wifi', label: 'free high-speed wifi' },
+      { icon: 'ac', label: 'air conditioning' },
+      { icon: 'tv', label: 'smart tv' },
+      { icon: 'bar', label: 'minibar' }
+    ]
+  },
+  suite: {
+    name: 'Suite',
+    price: '$310 / night',
+    photo: 'main photo — room-suite-main.jpg',
+    blurb: 'king bed, separate lounge, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed.',
+    specs: [
+      { icon: 'm²', label: '45 sqm' },
+      { icon: 'bed', label: 'king bed' },
+      { icon: '3', label: 'sleeps 3' },
+      { icon: '~', label: 'lounge area' }
+    ],
+    amenities: [
+      { icon: 'wifi', label: 'free high-speed wifi' },
+      { icon: 'ac', label: 'air conditioning' },
+      { icon: 'tv', label: 'smart tv' },
+      { icon: 'bar', label: 'minibar & lounge' }
+    ]
+  }
+};
+
 /* -----------------------------------------------------------------
    room-details.html — room selector tabs
-   Identical pattern to gallery.js's filter buttons: loop every tab,
-   compare it against the one that was clicked, and swap the same
-   btn-primary / btn-secondary classes used everywhere else on the
-   site — no separate tab-only CSS needed.
-
-   WORK IN PROGRESS: this only handles which tab *looks* selected.
-   Swapping the gallery photos, specs, amenities and price to match
-   the chosen room still needs to be wired up — see the TODO below.
+   Same active/inactive class-swap pattern as gallery.js's filter
+   buttons, plus a content rebuild: title, price, photo, blurb,
+   specs, amenities, and the CTA card all update to match the
+   selected room, built with createElement/textContent (no innerHTML,
+   same convention as the rest of this file).
 ----------------------------------------------------------------- */
 
 function initRoomTabs() {
@@ -256,21 +337,104 @@ function initRoomTabs() {
       event.preventDefault();
 
       const selectedRoom = tab.dataset.room;
-
-      tabs.forEach((otherTab) => {
-        const isSelected = otherTab === tab;
-        otherTab.setAttribute('aria-selected', String(isSelected));
-        otherTab.classList.toggle('btn-primary', isSelected);
-        otherTab.classList.toggle('btn-secondary', !isSelected);
-      });
-
-      // TODO: once each room type has its own data (photos, specs,
-      // price, amenities), look it up here using `selectedRoom` and
-      // update the page content instead of stopping at tab styling.
-      void selectedRoom;
+      setActiveRoomTab(selectedRoom);
+      updateRoomContent(selectedRoom);
     });
   });
 }
+
+// swaps which tab looks selected — split out from the click handler
+// so the initial page load (driven by the ?room= query param) can
+// activate the right tab too, not just clicks
+function setActiveRoomTab(roomKey) {
+  const tabs = document.querySelectorAll('.js-room-tab');
+
+  tabs.forEach((tab) => {
+    const isSelected = tab.dataset.room === roomKey;
+    tab.setAttribute('aria-selected', String(isSelected));
+    tab.classList.toggle('btn-primary', isSelected);
+    tab.classList.toggle('btn-secondary', !isSelected);
+  });
+}
+
+function updateRoomContent(roomKey) {
+  const room = ROOMS[roomKey];
+  if (!room) return;
+
+  const titleEl = document.querySelector('.js-room-title');
+  const priceEl = document.querySelector('.js-room-price');
+  const photoEl = document.querySelector('.js-room-photo');
+  const blurbEl = document.querySelector('.js-room-blurb');
+  const ctaTitleEl = document.querySelector('.js-room-cta-title');
+  const specsEl = document.querySelector('.js-room-specs');
+  const amenitiesEl = document.querySelector('.js-room-amenities');
+
+  if (titleEl) titleEl.textContent = room.name;
+  if (priceEl) priceEl.textContent = room.price;
+  if (photoEl) photoEl.textContent = room.photo;
+  if (blurbEl) blurbEl.textContent = room.blurb;
+  if (ctaTitleEl) ctaTitleEl.textContent = 'book: ' + room.name;
+
+  if (specsEl) {
+    specsEl.textContent = '';
+    room.specs.forEach((spec) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'text-center space-y-2';
+
+      const iconBox = document.createElement('div');
+      iconBox.className = 'w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold';
+      iconBox.textContent = spec.icon;
+
+      const label = document.createElement('p');
+      label.className = 'text-xs text-stone';
+      label.textContent = spec.label;
+
+      wrap.append(iconBox, label);
+      specsEl.appendChild(wrap);
+    });
+  }
+
+  if (amenitiesEl) {
+    amenitiesEl.textContent = '';
+    room.amenities.forEach((amenity) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3';
+
+      const iconBox = document.createElement('div');
+      iconBox.className = 'w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0';
+      iconBox.textContent = amenity.icon;
+
+      const label = document.createElement('span');
+      label.className = 'text-sm';
+      label.textContent = amenity.label;
+
+      wrap.append(iconBox, label);
+      amenitiesEl.appendChild(wrap);
+    });
+  }
+}
+
+/* -----------------------------------------------------------------
+   room-details.html — initial room from query string
+   If the visitor arrived via a "view details" link from rooms.html
+   (?room=deluxe), load that room's content on page load instead of
+   defaulting to whatever's hardcoded in the HTML. Falls back to
+   "standard" if the param is missing or doesn't match a real room.
+----------------------------------------------------------------- */
+
+function initRoomFromQueryString() {
+  const tabs = document.querySelectorAll('.js-room-tab');
+  if (tabs.length === 0) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const paramRoom = params.get('room');
+  const roomKey = ROOMS[paramRoom] ? paramRoom : 'standard';
+
+  setActiveRoomTab(roomKey);
+  updateRoomContent(roomKey);
+}
+
+
 
 /* -----------------------------------------------------------------
    rooms.html — room cards

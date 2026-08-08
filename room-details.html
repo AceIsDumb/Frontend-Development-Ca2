@@ -47,7 +47,7 @@
 
     <!-- gallery -->
     <div class="space-y-3">
-      <div class="img-placeholder h-96">main photo — room-standard-main.jpg</div>
+      <div class="js-room-photo img-placeholder h-96">main photo — room-standard-main.jpg</div>
       <div class="grid grid-cols-4 gap-3">
         <div class="img-placeholder h-24">thumb — room-standard-1.jpg</div>
         <div class="img-placeholder h-24">thumb — room-standard-2.jpg</div>
@@ -61,14 +61,14 @@
       <!-- room info -->
       <div class="md:col-span-2 space-y-8">
         <div class="flex items-center justify-between">
-          <h1 class="heading-lg">Standard Room</h1>
-          <p class="heading-lg !text-2xl">$150 / night</p>
+          <h1 class="js-room-title heading-lg">Standard Room</h1>
+          <p class="js-room-price heading-lg !text-2xl">$150 / night</p>
         </div>
-        <p class="text-stone leading-relaxed">queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night's rest. quiet enough to work in, comfortable enough to do nothing at all.</p>
+        <p class="js-room-blurb text-stone leading-relaxed">queen bed, city view, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night's rest. quiet enough to work in, comfortable enough to do nothing at all.</p>
 
         <div>
           <p class="text-sm font-medium mb-3 text-stone">specs</p>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="js-room-specs grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div class="text-center space-y-2">
               <div class="w-11 h-11 mx-auto rounded-xl bg-navytint text-navy flex items-center justify-center text-sm font-semibold">m²</div>
               <p class="text-xs text-stone">26 sqm</p>
@@ -90,7 +90,7 @@
 
         <div>
           <p class="text-sm font-medium mb-3 text-stone">amenities</p>
-          <div class="grid sm:grid-cols-2 gap-3">
+          <div class="js-room-amenities grid sm:grid-cols-2 gap-3">
             <div class="bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0">wifi</div>
               <span class="text-sm">free high-speed wifi</span>
@@ -113,7 +113,7 @@
 
       <!-- booking cta card -->
       <form novalidate class="js-room-booking-form bg-surface border border-border rounded-2xl p-6 h-fit space-y-4">
-        <p class="heading-md text-base">book: Standard Room</p>
+        <p class="js-room-cta-title heading-md text-base">book: Standard Room</p>
         <div>
           <label class="field-label" for="rd-checkin">check in</label>
           <input type="date" id="rd-checkin" name="checkin" class="js-checkin field-input">
