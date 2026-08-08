@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Merde - Home</title>
+<title>The Merdé - Home</title>
 
 <!-- tailwind cdn + our shared config, in that order -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -17,12 +17,12 @@
 <!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="#" class="btn-primary">Book Now</a>
+      <a href="#" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            no click logic yet, just the markup/placement for now -->
       <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
@@ -41,12 +41,12 @@
     <div class="img-placeholder absolute inset-0">hero photo — hero-home.jpg</div>
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-20 w-full">
-      <p class="eyebrow text-cream/70 mb-4">Accueillir!</p>
-      <h1 class="font-serif text-cream text-5xl md:text-6xl leading-tight max-w-2xl">Come for the experience, stay for the smells.</h1>
-      <p class="mt-5 max-w-md text-cream/80">Comfortable rooms, award-winning service, and a setting built for a slower pace.</p>
+      <p class="eyebrow text-cream/70 mb-4">Bienvenue!</p>
+      <h1 class="font-serif text-cream text-5xl md:text-6xl leading-tight max-w-2xl">Venez pour l'expérience, restez pour les arômes.</h1>
+      <p class="mt-5 max-w-md text-cream/80">Come for the rooms, stay for the experience.</p>
       <div class="mt-8 flex gap-4">
-        <a href="#check-availability" class="btn-primary">Check Availability</a>
-        <a href="rooms.html" class="btn-secondary">Explore Rooms</a>
+        <a href="#check-availability" class="btn-primary">Check Availability · Disponibilités?</a>
+        <a href="rooms.html" class="btn-secondary">Explore Rooms · Découvrir </a>
       </div>
     </div>
   </section>
@@ -54,7 +54,7 @@
   <!-- intro -->
   <section class="max-w-7xl mx-auto px-8 py-24 grid md:grid-cols-2 gap-16 items-center">
     <div>
-      <p class="eyebrow mb-4">Why choose us?</p>
+      <p class="eyebrow mb-4">Why choose us? · Pourquoi nous?</p>
       <h2 class="heading-lg mb-6">Not just a place to sleep after a long day of exploring.</h2>
       <p class="text-stone leading-relaxed mb-4">All our rooms are designed around the idea of comfort - clean lines, warm bedsheets, and a palette that stays out of the way of a good night's rest.</p>
       <p class="text-stone leading-relaxed">Our professional staff keeps things simple: attentive and warm service, a kitchen that cares about what it serves, and a building that feels calm the moment you walk in.</p>
@@ -66,21 +66,21 @@
   <section class="max-w-7xl mx-auto px-8 pb-24">
     <div class="flex items-end justify-between mb-10">
       <div>
-        <p class="eyebrow mb-3">Our featured rooms</p>
+        <p class="eyebrow mb-3">Our featured rooms · Nos chambres</p>
         <h2 class="heading-lg">Wake up feeling refreshed for another day of exploration.</h2>
       </div>
-      <a href="rooms.html" class="text-sm text-navy underline underline-offset-4 hidden sm:block">view all rooms</a>
+      <a href="rooms.html" class="text-sm text-navy underline underline-offset-4 hidden sm:block">Take a closer look.</a>
     </div>
     <div class="grid md:grid-cols-3 gap-8">
       <div>
         <div class="img-placeholder h-64 mb-4">room photo — room-1.jpg</div>
-        <h3 class="heading-md mb-1">Standard Room</h3>
+        <h3 class="heading-md mb-1">Chambre Standard</h3>
         <p class="text-stone text-sm mb-2">A queen bed, views of the city, 26 sqm</p>
         <p class="text-navy font-medium">from $150 / night</p>
       </div>
       <div>
         <div class="img-placeholder h-64 mb-4">room photo — room-2.jpg</div>
-        <h3 class="heading-md mb-1">Deluxe Room</h3>
+        <h3 class="heading-md mb-1">Chambre Deluxe</h3>
         <p class="text-stone text-sm mb-2">A bed fit for a king, a balcony view overlooking the city, 32 sqm</p>
         <p class="text-navy font-medium">from $220 / night</p>
       </div>
@@ -96,7 +96,7 @@
   <!-- quick booking widget -->
   <section id="check-availability" class="max-w-5xl mx-auto px-8 pb-24 scroll-mt-24">
     <div class="bg-navy rounded-3xl p-8 md:p-10">
-      <p class="font-serif text-cream text-xl mb-6">Check availability</p>
+      <p class="font-serif text-cream text-xl mb-6">Check Availability · Disponibilités?</p>
       <form id="booking-form" class="grid md:grid-cols-5 gap-4 items-start" novalidate>
         <div>
           <label class="text-cream/60 text-xs uppercase tracking-wide" for="checkin">check in</label>
@@ -126,7 +126,7 @@
             <option>Suite</option>
           </select>
         </div>
-        <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white mt-2">search</button>
+        <button type="submit" class="btn-primary bg-cream text-navy hover:bg-white mt-2">Search</button>
       </form>
       <p id="booking-status" class="text-cream/80 text-sm mt-4 hidden"></p>
     </div>
@@ -138,42 +138,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">The Merde</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
-      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <!-- shared nav drawer logic, same file on every page -->
