@@ -17,12 +17,12 @@
 <!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="booking.html" class="btn-primary">Book Now</a>
+      <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            nav.js wires this up and builds the drawer -->
       <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
@@ -44,47 +44,47 @@
 
     <!-- our story: photo on the left, text on the right -->
     <div>
-      <p class="eyebrow mb-3">about us</p>
-      <h1 class="heading-lg mb-10">our story</h1>
+      <p class="eyebrow mb-3">About us · Qui sommes-nous</p>
+      <h1 class="heading-lg mb-10">Our Story</h1>
 
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="img-placeholder h-80">founders photo — about-founders.jpg</div>
 
         <div class="space-y-4">
-          <p class="text-stone text-sm leading-relaxed">the hotel opened in 1998 with eleven rooms, one shared kitchen, and a founding pair who had spent years working in other people's hotels and taking notes on what they would do differently.</p>
-          <p class="text-stone text-sm leading-relaxed">what they wanted was simple and surprisingly rare: a place where the staff knew your name by the second morning, where nothing in the room needed a manual, and where the quiet was treated as a feature rather than an accident.</p>
+          <p class="text-stone text-sm leading-relaxed">The hotel opened in 1998 with eleven rooms, one shared kitchen, and a group of four who had spent years working in other people's hotels and taking notes on what they would do differently.</p>
+          <p class="text-stone text-sm leading-relaxed">What they wanted was simple and surprisingly rare: a place where the staff knew your name by the second morning, where nothing in the room needed a manual, and where the quiet was treated as a feature.</p>
           <!-- hidden until the read more button is pressed -->
           <div id="story-more" class="hidden space-y-4">
-            <p class="text-stone text-sm leading-relaxed">twenty-eight years later we have grown to sixty-four rooms across two buildings, and the founding pair still walk the floor most mornings. the notebook is still in use.</p>
-            <p class="text-stone text-sm leading-relaxed">the second building came in 2014, an old post office next door that had been empty for six years. we kept the counter, the tiled floor, and the original clock above the door.</p>
-            <p class="text-stone text-sm leading-relaxed">most of our staff have been here longer than a decade, which we think is the part guests actually notice, even if it is not the part they can point to.</p>
+            <p class="text-stone text-sm leading-relaxed">Now, in the present, we have grown to sixty-four rooms across two buildings, and the group still walk the floor most mornings. the notebook is still in use.</p>
+            <p class="text-stone text-sm leading-relaxed">The second building came in 2014, an old post office next door that had been empty for six years. we kept the counter, the tiled floor, and the original clock above the door.</p>
+            <p class="text-stone text-sm leading-relaxed">Most of our staff have been here as long as the hotel's original opening, and we hope that it helps shapes the guests' experience, even if it is not the part they can point to.</p>
           </div>
 
-          <button type="button" id="story-toggle" aria-expanded="false" aria-controls="story-more" class="btn-secondary text-sm">read more</button>
+          <button type="button" id="story-toggle" aria-expanded="false" aria-controls="story-more" class="btn-secondary text-sm">Read More</button>
         </div>
       </div>
     </div>
 
     <!-- mission / vision / values, 3-box layout from the wireframe -->
     <div>
-      <p class="eyebrow mb-3">what guides us</p>
-      <h2 class="heading-lg mb-10">mission &amp; values</h2>
+      <p class="eyebrow mb-3">What guides us</p>
+      <h2 class="heading-lg mb-10">Mission &amp; Valeurs</h2>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
 
         <div class="bg-surface border border-border rounded-xl p-6">
-          <h3 class="heading-md text-base mb-2">mission</h3>
-          <p class="text-stone text-sm leading-relaxed">to give every guest a stay that asks nothing of them — a room that works the moment they walk in, and service that anticipates rather than interrupts.</p>
+          <h3 class="heading-md text-base mb-2">Mission</h3>
+          <p class="text-stone text-sm leading-relaxed">To give every guest a stay that asks nothing of them, a room that works the moment they walk in, and service that anticipates.</p>
         </div>
 
         <div class="bg-surface border border-border rounded-xl p-6">
-          <h3 class="heading-md text-base mb-2">vision</h3>
-          <p class="text-stone text-sm leading-relaxed">to become the hotel travellers return to by habit rather than by comparison, and to grow only at the pace at which we can keep that true.</p>
+          <h3 class="heading-md text-base mb-2">Vision</h3>
+          <p class="text-stone text-sm leading-relaxed">To become the hotel travellers return to by habit rather than by comparing the value by price, and to grow only at the pace at which we can keep that true.</p>
         </div>
 
         <div class="bg-surface border border-border rounded-xl p-6">
-          <h3 class="heading-md text-base mb-2">values</h3>
-          <p class="text-stone text-sm leading-relaxed">care taken quietly, honesty in what we promise, restraint in what we add, and respect for the staff who make all of it possible.</p>
+          <h3 class="heading-md text-base mb-2">Valeurs</h3>
+          <p class="text-stone text-sm leading-relaxed">Care taken quietly and professionally, honesty in what we promise, restraint in what we add, and respect for the staff who make all of it possible.</p>
         </div>
 
       </div>
@@ -97,42 +97,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
-      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <script src="js/nav.js"></script>
