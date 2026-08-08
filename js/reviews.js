@@ -37,11 +37,11 @@ filterButtons.forEach(function (button) {
       const wordForReviews = visibleCount === 1 ? 'review' : 'reviews';
 
       if (selected === 'all') {
-        reviewCount.textContent = 'showing all ' + visibleCount + ' ' + wordForReviews;
+        reviewCount.textContent = 'Showing all ' + visibleCount + ' ' + wordForReviews;
       } else if (visibleCount === 0) {
-        reviewCount.textContent = 'no ' + selected + ' star reviews yet';
+        reviewCount.textContent = 'No reviews rated ' + selected + ' stars yet';
       } else {
-        reviewCount.textContent = 'showing ' + visibleCount + ' ' + selected + ' star ' + wordForReviews;
+        reviewCount.textContent = 'Showing ' + visibleCount + ' ' + wordForReviews + ' rated ' + selected + ' stars';
       }
     }
   });
