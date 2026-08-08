@@ -31,8 +31,11 @@
       var isValid = !checkinMissing && !checkoutInvalid;
 
       if (isValid) {
-        status.textContent = 'looks good — availability search would run here.';
-        status.classList.remove('hidden');
+        var params = new URLSearchParams({
+          checkin: checkin.value,
+          checkout: checkout.value
+        });
+        window.location.href = 'booking.html?' + params.toString();
       } else {
         status.classList.add('hidden');
       }
