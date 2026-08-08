@@ -38,7 +38,7 @@ if (form) {
     if (isValid) {
       // no backend yet, so just swap the form out for a little
       // confirmation message for now
-      form.innerHTML = '<p class="text-navy font-medium">thanks — we will get back to you soon.</p>';
+      form.innerHTML = '<p class="text-navy font-medium">Thanks — we will get back to you soon! · Merci! — nous vous répondrons bientôt.</p>';
     }
   });
 }
