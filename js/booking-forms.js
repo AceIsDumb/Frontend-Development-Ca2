@@ -266,7 +266,10 @@ const ROOMS = {
   standard: {
     name: 'Chambre Standard',
     price: '$150 / night',
-    photo: 'main photo — room-standard-main.jpg',
+    // room-standard-main.jpg doesn't exist yet — reusing the rooms.html
+    // card photo as a stopgap until a dedicated detail photo is sourced
+    photo: 'images/room-standard.jpg',
+    photoAlt: 'Standard Room main view',
     blurb: 'A queen bed, views of the city, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
     specs: [
       { icon: 'm²', label: '26 sqm' },
@@ -284,7 +287,10 @@ const ROOMS = {
   deluxe: {
     name: 'Chambre Deluxe',
     price: '$220 / night',
-    photo: 'main photo — room-deluxe-main.jpg',
+    // room-deluxe-main.jpg doesn't exist yet — reusing the rooms.html
+    // card photo as a stopgap until a dedicated detail photo is sourced
+    photo: 'images/room-deluxe.jpg',
+    photoAlt: 'Deluxe Room main view',
     blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
     specs: [
       { icon: 'm²', label: '32 sqm' },
@@ -302,7 +308,10 @@ const ROOMS = {
   suite: {
     name: 'Suite',
     price: '$310 / night',
-    photo: 'main photo — room-suite-main.jpg',
+    // room-suite-main.jpg doesn't exist yet — reusing the rooms.html
+    // card photo as a stopgap until a dedicated detail photo is sourced
+    photo: 'images/room-suite.jpg',
+    photoAlt: 'Suite main view',
     blurb: 'A room fit for a party, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
     specs: [
       { icon: 'm²', label: '45 sqm' },
@@ -371,7 +380,10 @@ function updateRoomContent(roomKey) {
 
   if (titleEl) titleEl.textContent = room.name;
   if (priceEl) priceEl.textContent = room.price;
-  if (photoEl) photoEl.textContent = room.photo;
+  if (photoEl) {
+    photoEl.src = room.photo;
+    photoEl.alt = room.photoAlt;
+  }
   if (blurbEl) blurbEl.textContent = room.blurb;
   if (ctaTitleEl) ctaTitleEl.textContent = 'book: ' + room.name;
 
