@@ -17,12 +17,12 @@
 <!-- nav is just a placeholder bar for now, no menu logic wired up yet -->
 <header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-    <div class="font-serif text-2xl text-navy">The Merde</div>
+    <div class="font-serif text-2xl text-navy">The Merdé</div>
 
     <!-- book now + hamburger grouped together on the right, instead of
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
-      <a href="booking.html" class="btn-primary">Book Now</a>
+      <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
       <!-- hamburger icon, sits where the nav menu should open from.
            nav.js wires this up and builds the drawer -->
       <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
@@ -42,20 +42,20 @@
        header into the heading, same as booking.html does -->
   <section class="max-w-7xl mx-auto px-8 py-20">
 
-    <p class="eyebrow mb-3">deals and packages</p>
-    <h1 class="heading-lg mb-4">current offers &amp; packages</h1>
-    <p class="text-stone text-sm mb-10 max-w-2xl">rates and packages available for booking now. each one applies automatically when you select it on the booking page.</p>
+    <p class="eyebrow mb-3">Deals and Packages · offres et forfaits</p>
+    <h1 class="heading-lg mb-4">Current Offers &amp; Packages</h1>
+    <p class="text-stone text-sm mb-10 max-w-2xl">Rates and packages available for booking now. Each one applies automatically when you select it on the booking page.</p>
 
     <!-- filter buttons. same pattern as the gallery page: data-filter on
          each button, "all" starts as the active one -->
     <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
-      <h2 class="heading-md text-base">filter by deal type</h2>
+      <h2 class="heading-md text-base">Filter by deal type</h2>
       <div role="radiogroup" aria-label="filter offers by deal type" class="flex flex-wrap gap-3">
-        <button type="button" role="radio" aria-checked="true" data-filter="all" class="btn-primary text-sm">all</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="limited-time" class="btn-secondary text-sm">limited time</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="honeymoon" class="btn-secondary text-sm">honeymoon</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="long-stay" class="btn-secondary text-sm">long-stay</button>
-        <button type="button" role="radio" aria-checked="false" data-filter="family" class="btn-secondary text-sm">family</button>
+        <button type="button" role="radio" aria-checked="true" data-filter="all" class="btn-primary text-sm">All</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="limited-time" class="btn-secondary text-sm">Limited time</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="honeymoon" class="btn-secondary text-sm">Honeymoon</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="long-stay" class="btn-secondary text-sm">Long-stay</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="family" class="btn-secondary text-sm">Family</button>
       </div>
     </div>
 
@@ -63,58 +63,58 @@
          phone instead of squashing the columns -->
     <div class="overflow-x-auto bg-surface border border-border rounded-xl">
       <table class="w-full text-sm text-left border-collapse">
-        <caption class="sr-only">current hotel offers and packages, with deal type, what is included, and nightly rate</caption>
+        <caption class="sr-only">Current hotel offers and packages, with deal type, what is included, and nightly rate</caption>
 
         <thead>
           <tr class="bg-surfacealt border-b border-border">
-            <th scope="col" class="px-5 py-4 font-medium text-navy">package</th>
-            <th scope="col" class="px-5 py-4 font-medium text-navy">deal type</th>
-            <th scope="col" class="px-5 py-4 font-medium text-navy">what&apos;s included</th>
-            <th scope="col" class="px-5 py-4 font-medium text-navy">from</th>
-            <th scope="col" class="px-5 py-4 font-medium text-navy"><span class="sr-only">booking link</span></th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">Package</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">Deal type</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">What&apos;s included</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy">From</th>
+            <th scope="col" class="px-5 py-4 font-medium text-navy"><span class="sr-only">Booking link</span></th>
           </tr>
         </thead>
 
         <tbody>
           <!-- data-deal on each row so the filter script can match it -->
           <tr data-deal="limited-time" class="border-b border-border">
-            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">three nights, pay for two</th>
-            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">limited time</span></td>
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">Three Nights, Pay For Two</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">Limited time</span></td>
             <td class="px-5 py-5 align-top text-stone leading-relaxed">third night free on any room type, on stays completed before the end of the season</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$300 total</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
 
           <tr data-deal="honeymoon" class="border-b border-border">
-            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">the slow start</th>
-            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">honeymoon</span></td>
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">The Late Riser</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">Honeymoon</span></td>
             <td class="px-5 py-5 align-top text-stone leading-relaxed">suite, late checkout, breakfast brought to the room, and a table held on the first evening</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$410 / night</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
 
           <tr data-deal="long-stay" class="border-b border-border">
-            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">a week or more</th>
-            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">long-stay</span></td>
-            <td class="px-5 py-5 align-top text-stone leading-relaxed">reduced nightly rate on stays of seven nights or more, weekly housekeeping and laundry included</td>
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">A week, maybe more?</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">Long-stay</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">Reduced nightly rate on stays of seven nights or more, weekly housekeeping and laundry included</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$125 / night</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
 
           <tr data-deal="limited-time" class="border-b border-border">
-            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">off-season quiet</th>
-            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">limited time</span></td>
-            <td class="px-5 py-5 align-top text-stone leading-relaxed">our lowest rates of the year on deluxe rooms and above, midweek arrivals only</td>
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">Off-season Tranquility</th>
+            <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">Limited time</span></td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">Our lowest rates of the year on deluxe rooms and above, midweek arrivals only</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$165 / night</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
 
           <tr data-deal="family" class="border-b border-border">
-            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">two rooms, one rate</th>
+            <th scope="row" class="px-5 py-5 text-left align-top font-medium text-stonedark">Two rooms for the price of one</th>
             <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">family</span></td>
-            <td class="px-5 py-5 align-top text-stone leading-relaxed">two adjoining rooms at a single reduced rate, breakfast included for up to four guests</td>
+            <td class="px-5 py-5 align-top text-stone leading-relaxed">Two adjoining rooms at a single reduced rate, breakfast included for up to four guests</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$270 / night</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
 
           <tr data-deal="long-stay">
@@ -122,7 +122,7 @@
             <td class="px-5 py-5 align-top"><span class="bg-navytint text-navy text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap">long-stay</span></td>
             <td class="px-5 py-5 align-top text-stone leading-relaxed">lower rate on any room when you reserve sixty days ahead, paid in full at booking and non-refundable</td>
             <td class="px-5 py-5 align-top text-navy font-medium whitespace-nowrap">$135 / night</td>
-            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">learn more</a></td>
+            <td class="px-5 py-5 align-top"><a href="booking.html" class="btn-secondary !py-2 !px-4 text-xs whitespace-nowrap">Details</a></td>
           </tr>
         </tbody>
       </table>
@@ -137,42 +137,42 @@
 <footer class="bg-navy text-cream/70">
   <div class="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-4 gap-10">
     <div>
-      <div class="font-serif text-2xl text-cream mb-3">Hotel Logo</div>
-      <p class="text-sm leading-relaxed">a quiet, well-kept hotel — open year-round.</p>
+      <div class="font-serif text-2xl text-cream mb-3">The Merdé</div>
+      <p class="text-sm leading-relaxed">A quiet, well-kept hotel - open year-round.</p>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">explore</p>
+      <p class="text-cream text-sm font-medium mb-4">Explore</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="index.html" class="hover:text-cream">home</a></li>
-        <li><a href="rooms.html" class="hover:text-cream">rooms &amp; suites</a></li>
-        <li><a href="room-details.html" class="hover:text-cream">room detail</a></li>
-        <li><a href="offers.html" class="hover:text-cream">offers &amp; packages</a></li>
-        <li><a href="amenities.html" class="hover:text-cream">amenities</a></li>
-        <li><a href="gallery.html" class="hover:text-cream">gallery</a></li>
-        <li><a href="booking.html" class="hover:text-cream">booking</a></li>
+        <li><a href="index.html" class="hover:text-cream">Home</a></li>
+        <li><a href="rooms.html" class="hover:text-cream">Rooms &amp; Suites</a></li>
+        <li><a href="room-details.html" class="hover:text-cream">Room Details</a></li>
+        <li><a href="offers.html" class="hover:text-cream">Offers &amp; Packages</a></li>
+        <li><a href="amenities.html" class="hover:text-cream">Amenities</a></li>
+        <li><a href="gallery.html" class="hover:text-cream">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-cream">Booking</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">company</p>
+      <p class="text-cream text-sm font-medium mb-4">Our Company</p>
       <ul class="space-y-2 text-sm">
-        <li><a href="about.html" class="hover:text-cream">about us</a></li>
-        <li><a href="reviews.html" class="hover:text-cream">reviews</a></li>
-        <li><a href="faq.html" class="hover:text-cream">faq</a></li>
-        <li><a href="things-to-do.html" class="hover:text-cream">things to do</a></li>
-        <li><a href="contact.html" class="hover:text-cream">location / contact</a></li>
+        <li><a href="about.html" class="hover:text-cream">About Us</a></li>
+        <li><a href="reviews.html" class="hover:text-cream">Reviews</a></li>
+        <li><a href="faq.html" class="hover:text-cream">Frequently Asked Questions</a></li>
+        <li><a href="things-to-do.html" class="hover:text-cream">Things To Do</a></li>
+        <li><a href="contact.html" class="hover:text-cream">Location / Contact</a></li>
       </ul>
     </div>
     <div>
-      <p class="text-cream text-sm font-medium mb-4">contact</p>
+      <p class="text-cream text-sm font-medium mb-4">Contact</p>
       <ul class="space-y-2 text-sm">
-        <li>address line</li>
-        <li>hello@hotelname.com</li>
-        <li>+1 (555) 019 4420</li>
+        <li>300 Tiong Bahru Road Singapore 168731</li>
+        <li>hello@themerde.com</li>
+        <li>+65 81127151</li>
       </ul>
-      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">contact us</a>
+      <a href="contact.html" class="btn-primary bg-cream text-navy hover:bg-white mt-4 inline-block">Contact us</a>
     </div>
   </div>
-  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 Hotel Name. all rights reserved.</div>
+  <div class="border-t border-cream/10 py-6 text-xs text-center text-cream/40">© 2026 The Merdé. All rights reserved.</div>
 </footer>
 
 <script src="js/nav.js"></script>
