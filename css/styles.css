@@ -133,6 +133,10 @@ body {
   outline: none;
   border-color: #16233B;
 }
+.quick-booking-select option {
+  color: #16233B;
+  background-color: #FFFFFF;
+}
 /* shown when a field fails validation, js toggles this class on */
 .field-error {
   border-color: #B4482E;
