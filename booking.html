@@ -19,9 +19,9 @@
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
       <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
-      <!-- hamburger icon, sits where the nav menu should open from.
-           no click logic yet, just the markup/placement for now -->
-      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+      <!-- hamburger icon, wired up by nav.js -->
+      <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
+              class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
         <span class="block h-0.5 w-7 bg-stone"></span>
         <span class="block h-0.5 w-5 bg-stone"></span>
         <span class="block h-0.5 w-7 bg-stone"></span>
@@ -77,9 +77,36 @@
         </div>
       </div>
 
+      <!-- packages, pulled straight from offers.html so the two pages never
+           show two different prices for the same deal. single-select, same
+           radiogroup pattern as the filter buttons on offers.html. -->
+      <div>
+        <p class="field-label mb-3">Package · forfait</p>
+        <div role="radiogroup" aria-label="apply a package rate" class="flex flex-wrap gap-3">
+          <button type="button" role="radio" aria-checked="true" data-package="none"
+                  class="js-package btn-primary !py-2 !px-4 text-xs">Standard rate</button>
+          <button type="button" role="radio" aria-checked="false" data-package="three-nights-pay-two"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">Three Nights, Pay For Two · $300 total</button>
+          <button type="button" role="radio" aria-checked="false" data-package="late-riser"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">The Late Riser · $410/night</button>
+          <button type="button" role="radio" aria-checked="false" data-package="week-or-more"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">A week, maybe more? · $125/night</button>
+          <button type="button" role="radio" aria-checked="false" data-package="offseason-tranquility"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">Off-season Tranquility · $165/night</button>
+          <button type="button" role="radio" aria-checked="false" data-package="two-rooms-one-price"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">Two rooms for the price of one · $270/night</button>
+          <button type="button" role="radio" aria-checked="false" data-package="book-early-pay-less"
+                  class="js-package btn-secondary !py-2 !px-4 text-xs">Book early, pay less · $135/night</button>
+        </div>
+        <p class="text-stone text-xs mt-3">full terms for each deal are on <a href="offers.html" class="underline hover:text-navy">offers &amp; packages</a>.</p>
+      </div>
+
       <!-- summary + confirm -->
       <div class="flex items-center justify-between border-t border-border pt-6">
-        <p class="heading-md text-base">total: $<span class="js-total-price">150</span></p>
+        <div>
+          <p class="js-rate-summary text-xs text-stone mb-1">$150 / night × 1 night</p>
+          <p class="heading-md text-base">Total: $<span class="js-total-price">150</span></p>
+        </div>
         <button type="submit" class="btn-primary">Confirm Booking</button>
       </div>
 

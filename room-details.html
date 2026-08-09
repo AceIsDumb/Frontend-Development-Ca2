@@ -19,9 +19,9 @@
          justify-between spacing all 3 evenly across the bar -->
     <div class="flex items-center gap-5">
       <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
-      <!-- hamburger icon, sits where the nav menu should open from.
-           no click logic yet, just the markup/placement for now -->
-      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+      <!-- hamburger icon, wired up by nav.js -->
+      <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
+              class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
         <span class="block h-0.5 w-7 bg-stone"></span>
         <span class="block h-0.5 w-5 bg-stone"></span>
         <span class="block h-0.5 w-7 bg-stone"></span>
@@ -48,12 +48,14 @@
     <!-- gallery -->
     <div class="space-y-3">
       <img class="js-room-photo h-96 w-full object-cover rounded-lg" src="images/room-standard.jpg" alt="Standard Room main view">
-      <!-- TODO: dedicated thumbnail photos (room-standard-1.jpg etc.) don't exist yet — placeholders stay until sourced -->
+      <!-- drop room-standard-1.jpg (etc, see ROOMS.thumbs in booking-forms.js) into
+           images/ and they show up here. updateRoomContent() swaps all 4 whenever
+           a different room tab is selected, same as the main photo above. -->
       <div class="grid grid-cols-4 gap-3">
-        <div class="img-placeholder h-24">thumb — room-standard-1.jpg</div>
-        <div class="img-placeholder h-24">thumb — room-standard-2.jpg</div>
-        <div class="img-placeholder h-24">thumb — room-standard-3.jpg</div>
-        <div class="img-placeholder h-24">thumb — room-standard-4.jpg</div>
+        <img class="js-room-thumb h-24 w-full object-cover rounded-xl" src="images/room-standard-1.jpg" alt="Standard Room detail photo 1">
+        <img class="js-room-thumb h-24 w-full object-cover rounded-xl" src="images/room-standard-2.jpg" alt="Standard Room detail photo 2">
+        <img class="js-room-thumb h-24 w-full object-cover rounded-xl" src="images/room-standard-3.jpg" alt="Standard Room detail photo 3">
+        <img class="js-room-thumb h-24 w-full object-cover rounded-xl" src="images/room-standard-4.jpg" alt="Standard Room detail photo 4">
       </div>
     </div>
 

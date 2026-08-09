@@ -11,17 +11,16 @@
 </head>
 <body class="bg-cream text-stonedark">
 
-<header class="bg-cream border-border">
+<header class="bg-cream border-b border-border">
   <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
     <div class="font-serif text-2xl text-navy">The Merdé</div>
 
-    <!-- book now + hamburger grouped together on the right, instead of
-         justify-between spacing all 3 evenly across the bar -->
+    <!-- book now + hamburger grouped together on the right -->
     <div class="flex items-center gap-5">
       <a href="booking.html" class="btn-primary">Book Now · Réservez</a>
-      <!-- hamburger icon, sits where the nav menu should open from.
-           no click logic yet, just the markup/placement for now -->
-      <button aria-label="open menu" class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
+      <!-- hamburger icon, wired up by nav.js -->
+      <button id="nav-open" aria-label="open menu" aria-expanded="false" aria-controls="nav-drawer"
+              class="flex flex-col justify-center gap-1.5 w-9 h-9 items-end">
         <span class="block h-0.5 w-7 bg-stone"></span>
         <span class="block h-0.5 w-5 bg-stone"></span>
         <span class="block h-0.5 w-7 bg-stone"></span>
@@ -34,8 +33,8 @@
 
   <!-- page header banner, same treatment as the contact / things-to-do pages -->
   <section class="relative h-72 flex items-end">
-    <!-- TODO: hero-rooms.jpg doesn't exist in images/ yet — placeholder stays until sourced -->
-    <div class="img-placeholder absolute inset-0">page banner photo — hero-rooms.jpg</div>
+    <!-- drop hero-rooms.jpg into images/ and it shows up here automatically -->
+    <img src="images/hero-rooms.jpg" alt="Panoramic view of the hotel's rooms and suites" class="absolute inset-0 h-full w-full object-cover">
     <div class="hero-overlay absolute inset-0"></div>
     <div class="relative max-w-7xl mx-auto px-8 pb-10 w-full">
       <p class="eyebrow text-cream/70 mb-3">Accommodations · hébergement </p>

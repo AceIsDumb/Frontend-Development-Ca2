@@ -120,6 +120,31 @@ const ADDON_PRICES = {
   'late checkout': 20
 };
 
+// mirrors offers.html exactly (names + prices) so the two pages never
+// drift apart. "flat" packages are a fixed total regardless of how many
+// nights are booked; "rate" packages replace the room's nightly rate
+// and still get multiplied by the number of nights.
+const PACKAGES = {
+  'three-nights-pay-two': { name: 'Three Nights, Pay For Two', flat: 300 },
+  'late-riser': { name: 'The Late Riser', rate: 410 },
+  'week-or-more': { name: 'A week, maybe more?', rate: 125 },
+  'offseason-tranquility': { name: 'Off-season Tranquility', rate: 165 },
+  'two-rooms-one-price': { name: 'Two rooms for the price of one', rate: 270 },
+  'book-early-pay-less': { name: 'book early, pay less', rate: 135 }
+};
+
+const MS_PER_NIGHT = 1000 * 60 * 60 * 24;
+
+// number of nights between check-in/check-out. Falls back to 1 so the
+// summary always shows a sane number before both dates are picked, or
+// while a check-out earlier than check-in is still being corrected.
+function getNightCount(checkinEl, checkoutEl) {
+  const checkinDate = toDateOnly(checkinEl.value);
+  const checkoutDate = toDateOnly(checkoutEl.value);
+  if (!checkinDate || !checkoutDate || checkoutDate <= checkinDate) return 1;
+  return Math.round((checkoutDate - checkinDate) / MS_PER_NIGHT);
+}
+
 function initBookingForm() {
   const form = document.querySelector('.js-booking-form');
   if (!form) return;
@@ -128,7 +153,9 @@ function initBookingForm() {
   const checkoutEl = form.querySelector('.js-checkout');
   const roomtypeEl = form.querySelector('.js-roomtype');
   const totalEl = form.querySelector('.js-total-price');
+  const rateSummaryEl = form.querySelector('.js-rate-summary');
   const addonButtons = form.querySelectorAll('.js-addon');
+  const packageButtons = form.querySelectorAll('.js-package');
   const confirmationEl = form.querySelector('.js-booking-confirmation');
 
   // if someone arrived here from room-details.html's quick-booking
@@ -138,26 +165,79 @@ function initBookingForm() {
 
   function updateTotal() {
     const roomKey = roomtypeEl.value.trim().toLowerCase();
-    let total = ROOM_PRICES[roomKey] ?? 0;
+    const nights = getNightCount(checkinEl, checkoutEl);
 
-    form.querySelectorAll('.js-addon.addon-active').forEach((button) => {
+    // read the *currently selected* package straight from the DOM
+    // (aria-checked) instead of tracking a separate JS variable. Two
+    // sources of truth for "which package is active" is exactly what
+    // was causing the price to flicker between two values on repeated
+    // clicks — the DOM and the variable could disagree about which
+    // button was last selected.
+    const activeButton = form.querySelector('.js-package[aria-checked="true"]');
+    const activePackage = activeButton ? PACKAGES[activeButton.dataset.package] : null;
+
+    let roomCost;
+    let summaryText;
+
+    if (activePackage && activePackage.flat) {
+      roomCost = activePackage.flat;
+      summaryText = activePackage.name + ' — $' + activePackage.flat + ' total';
+    } else {
+      const nightlyRate = activePackage ? activePackage.rate : (ROOM_PRICES[roomKey] ?? 0);
+      roomCost = nightlyRate * nights;
+      const nightsLabel = nights === 1 ? 'night' : 'nights';
+      summaryText = (activePackage ? activePackage.name + ' — ' : '') +
+        '$' + nightlyRate + ' / night × ' + nights + ' ' + nightsLabel;
+    }
+
+    let addonsCost = 0;
+    form.querySelectorAll('.js-addon[aria-pressed="true"]').forEach((button) => {
       const addonKey = button.textContent.trim().toLowerCase();
-      total += ADDON_PRICES[addonKey] ?? 0;
+      addonsCost += ADDON_PRICES[addonKey] ?? 0;
     });
 
-    totalEl.textContent = total;
+    totalEl.textContent = roomCost + addonsCost;
+    if (rateSummaryEl) rateSummaryEl.textContent = summaryText;
   }
 
-  // add-on chips toggle on/off and feed into the running total
+  // add-on chips toggle on/off and feed into the running total. Style
+  // state lives on aria-pressed + the btn-primary/btn-secondary swap
+  // (same pattern as everywhere else on the site) instead of a bare
+  // "addon-active" class that had no matching CSS rule, so previously
+  // a selected add-on changed the price but never looked selected.
   addonButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const isActive = button.classList.toggle('addon-active');
+      const isActive = button.getAttribute('aria-pressed') !== 'true';
       button.setAttribute('aria-pressed', String(isActive));
+      button.classList.toggle('btn-primary', isActive);
+      button.classList.toggle('btn-secondary', !isActive);
+      updateTotal();
+    });
+  });
+
+  // package chips are single-select (radio behaviour): every click
+  // walks the *whole* group and explicitly sets each button's state
+  // relative to the one just clicked, so exactly one is ever active.
+  // clicking the already-active package again simply leaves it active
+  // instead of toggling it off into an undefined in-between state.
+  packageButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      packageButtons.forEach((otherButton) => {
+        const isSelected = otherButton === button;
+        otherButton.setAttribute('aria-checked', String(isSelected));
+        otherButton.classList.toggle('btn-primary', isSelected);
+        otherButton.classList.toggle('btn-secondary', !isSelected);
+      });
       updateTotal();
     });
   });
 
   roomtypeEl.addEventListener('change', updateTotal);
+  // dates weren't wired to the total at all before — the summary
+  // never reacted to a check-in/check-out change, which is the root
+  // cause of "the total only ever showed one day's price."
+  checkinEl.addEventListener('change', updateTotal);
+  checkoutEl.addEventListener('change', updateTotal);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -181,8 +261,14 @@ function initBookingForm() {
 
     form.reset();
     addonButtons.forEach((button) => {
-      button.classList.remove('addon-active');
       button.setAttribute('aria-pressed', 'false');
+      button.classList.remove('btn-primary');
+      button.classList.add('btn-secondary');
+    });
+    packageButtons.forEach((button) => {
+      button.setAttribute('aria-checked', 'false');
+      button.classList.remove('btn-primary');
+      button.classList.add('btn-secondary');
     });
     updateTotal();
   });
@@ -208,11 +294,17 @@ function prefillFromQueryString(checkinEl, checkoutEl, roomtypeEl) {
 
   // roomtype comes from room-details.html's tab data-room values
   // (standard/deluxe/suite) but the <select> options are full labels
-  // ("standard room", "deluxe room", "suite") — map between them
+  // ("Standard Room", "Deluxe Room", "Suite") — map between them.
+  // NOTE: setting select.value is case-sensitive against the option
+  // text, so these must match the <option> labels in booking.html
+  // exactly. They previously used all-lowercase labels, which only
+  // "worked" for Standard Room because it happens to be the first
+  // (default) option anyway — picking Deluxe or Suite on
+  // room-details.html silently reset to Standard Room here.
   const ROOM_KEY_TO_LABEL = {
-    standard: 'standard room',
-    deluxe: 'deluxe room',
-    suite: 'suite'
+    standard: 'Standard Room',
+    deluxe: 'Deluxe Room',
+    suite: 'Suite'
   };
 
   if (paramRoomtype && ROOM_KEY_TO_LABEL[paramRoomtype]) {
@@ -283,6 +375,12 @@ const ROOMS = {
     // card photo as a stopgap until a dedicated detail photo is sourced
     photo: 'images/room-standard.jpg',
     photoAlt: 'Standard Room main view',
+    thumbs: [
+      { src: 'images/room-standard-1.jpg', alt: 'Standard Room detail photo 1' },
+      { src: 'images/room-standard-2.jpg', alt: 'Standard Room detail photo 2' },
+      { src: 'images/room-standard-3.jpg', alt: 'Standard Room detail photo 3' },
+      { src: 'images/room-standard-4.jpg', alt: 'Standard Room detail photo 4' }
+    ],
     blurb: 'A queen bed, views of the city, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
     specs: [
       { icon: 'm²', label: '26 sqm' },
@@ -304,6 +402,12 @@ const ROOMS = {
     // card photo as a stopgap until a dedicated detail photo is sourced
     photo: 'images/room-deluxe.jpg',
     photoAlt: 'Deluxe Room main view',
+    thumbs: [
+      { src: 'images/room-deluxe-1.jpg', alt: 'Deluxe Room detail photo 1' },
+      { src: 'images/room-deluxe-2.jpg', alt: 'Deluxe Room detail photo 2' },
+      { src: 'images/room-deluxe-3.jpg', alt: 'Deluxe Room detail photo 3' },
+      { src: 'images/room-deluxe-4.jpg', alt: 'Deluxe Room detail photo 4' }
+    ],
     blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
     specs: [
       { icon: 'm²', label: '32 sqm' },
@@ -325,6 +429,12 @@ const ROOMS = {
     // card photo as a stopgap until a dedicated detail photo is sourced
     photo: 'images/room-suite.jpg',
     photoAlt: 'Suite main view',
+    thumbs: [
+      { src: 'images/room-suite-1.jpg', alt: 'Suite detail photo 1' },
+      { src: 'images/room-suite-2.jpg', alt: 'Suite detail photo 2' },
+      { src: 'images/room-suite-3.jpg', alt: 'Suite detail photo 3' },
+      { src: 'images/room-suite-4.jpg', alt: 'Suite detail photo 4' }
+    ],
     blurb: 'A room fit for a party, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
     specs: [
       { icon: 'm²', label: '45 sqm' },
@@ -399,6 +509,16 @@ function updateRoomContent(roomKey) {
   }
   if (blurbEl) blurbEl.textContent = room.blurb;
   if (ctaTitleEl) ctaTitleEl.textContent = 'book: ' + room.name;
+
+  const thumbEls = document.querySelectorAll('.js-room-thumb');
+  if (thumbEls.length && room.thumbs) {
+    thumbEls.forEach((imgEl, index) => {
+      const thumb = room.thumbs[index];
+      if (!thumb) return;
+      imgEl.src = thumb.src;
+      imgEl.alt = thumb.alt;
+    });
+  }
 
   if (specsEl) {
     specsEl.textContent = '';
