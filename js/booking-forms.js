@@ -381,7 +381,7 @@ const ROOMS = {
       { src: 'images/room-standard-3.jpg', alt: 'Standard Room detail photo 3' },
       { src: 'images/room-standard-4.jpg', alt: 'Standard Room detail photo 4' }
     ],
-    blurb: 'A queen bed, views of the city, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
+    blurb: 'A queen bed, views of the city, 26 sqm, a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
     specs: [
       { icon: 'm²', label: '26 sqm' },
       { icon: 'bed', label: 'queen bed' },
@@ -408,7 +408,7 @@ const ROOMS = {
       { src: 'images/room-deluxe-3.jpg', alt: 'Deluxe Room detail photo 3' },
       { src: 'images/room-deluxe-4.jpg', alt: 'Deluxe Room detail photo 4' }
     ],
-    blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
+    blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm, more space, a little more light, and a balcony to take the morning coffee outside.',
     specs: [
       { icon: 'm²', label: '32 sqm' },
       { icon: 'bed', label: 'king bed' },
@@ -435,7 +435,7 @@ const ROOMS = {
       { src: 'images/room-suite-3.jpg', alt: 'Suite detail photo 3' },
       { src: 'images/room-suite-4.jpg', alt: 'Suite detail photo 4' }
     ],
-    blurb: 'A room fit for a party, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
+    blurb: 'A room fit for a party, 45 sqm, the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
     specs: [
       { icon: 'm²', label: '45 sqm' },
       { icon: 'bed', label: 'king bed' },
