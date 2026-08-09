@@ -51,18 +51,18 @@
         <div>
           <label class="field-label" for="guests">Guests · invités</label>
           <select id="guests" name="guests" class="js-guests field-input">
-            <option>1 adult</option>
-            <option>2 adults</option>
-            <option>3 adults</option>
-            <option>family</option>
+            <option data-guests="1">1 adult</option>
+            <option data-guests="2">2 adults</option>
+            <option data-guests="3">3 adults</option>
+            <option data-guests="family">family</option>
           </select>
         </div>
         <div>
           <label class="field-label" for="roomtype">Room type · type de chambre</label>
           <select id="roomtype" name="roomtype" class="js-roomtype field-input">
-            <option>Standard Room</option>
-            <option>Deluxe Room</option>
-            <option>Suite</option>
+            <option data-room="standard">Standard Room</option>
+            <option data-room="deluxe">Deluxe Room</option>
+            <option data-room="suite">Suite</option>
           </select>
         </div>
       </div>
@@ -71,9 +71,9 @@
       <div>
         <p class="field-label mb-3">Add-ons · suppléments</p>
         <div class="flex flex-wrap gap-3">
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Breakfast</button>
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Airport Transfer</button>
-          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" aria-pressed="false">Late Checkout</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" data-addon="breakfast" aria-pressed="false">Breakfast</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" data-addon="transfer" aria-pressed="false">Airport Transfer</button>
+          <button type="button" class="js-addon btn-secondary !py-2 !px-4 text-xs" data-addon="late-checkout" aria-pressed="false">Late Checkout</button>
         </div>
       </div>
 
@@ -98,6 +98,7 @@
           <button type="button" role="radio" aria-checked="false" data-package="book-early-pay-less"
                   class="js-package btn-secondary !py-2 !px-4 text-xs">Book early, pay less · $135/night</button>
         </div>
+        <p class="js-package-note text-navy text-xs mt-3" aria-live="polite"></p>
         <p class="text-stone text-xs mt-3">full terms for each deal are on <a href="offers.html" class="underline hover:text-navy">offers &amp; packages</a>.</p>
       </div>
 
