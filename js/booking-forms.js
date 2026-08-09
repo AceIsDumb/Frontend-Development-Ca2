@@ -654,15 +654,15 @@ const ROOMS = {
     blurb: 'A queen bed, views of the city, 26 sqm — a compact, sunlit room kept simple: clean lines, warm materials, and a palette that stays out of the way of a good night\'s rest. quiet enough to work in, comfortable enough to do nothing at all.',
     specs: [
       { icon: 'm²', label: '26 sqm' },
-      { icon: 'bed', label: 'queen bed' },
-      { icon: '2', label: 'sleeps 2' },
-      { icon: '~', label: 'city view' }
+      { icon: 'bed', label: 'Queen bed' },
+      { icon: '2', label: 'Sleeps 2' },
+      { icon: '~', label: 'City view' }
     ],
     amenities: [
-      { icon: 'wifi', label: 'free high-speed wifi' },
-      { icon: 'ac', label: 'air conditioning' },
-      { icon: 'tv', label: 'smart tv' },
-      { icon: 'cup', label: 'coffee & tea station' }
+      { icon: 'wifi', label: 'Free high-speed WiFi' },
+      { icon: 'ac', label: 'Air conditioning' },
+      { icon: 'tv', label: 'Smart TV' },
+      { icon: 'cup', label: 'Coffee & tea station' }
     ]
   },
   deluxe: {
@@ -681,15 +681,15 @@ const ROOMS = {
     blurb: 'A bed fit for a king, a balcony view overlooking the city, 32 sqm — more space, a little more light, and a balcony to take the morning coffee outside.',
     specs: [
       { icon: 'm²', label: '32 sqm' },
-      { icon: 'bed', label: 'king bed' },
-      { icon: '2', label: 'sleeps 2' },
-      { icon: '~', label: 'balcony view' }
+      { icon: 'bed', label: 'King bed' },
+      { icon: '2', label: 'Sleeps 2' },
+      { icon: '~', label: 'Balcony view' }
     ],
     amenities: [
-      { icon: 'wifi', label: 'free high-speed wifi' },
-      { icon: 'ac', label: 'air conditioning' },
-      { icon: 'tv', label: 'smart tv' },
-      { icon: 'bar', label: 'minibar' }
+      { icon: 'wifi', label: 'Free high-speed WiFi' },
+      { icon: 'ac', label: 'Air conditioning' },
+      { icon: 'tv', label: 'Smart TV' },
+      { icon: 'bar', label: 'Minibar' }
     ]
   },
   suite: {
@@ -708,15 +708,15 @@ const ROOMS = {
     blurb: 'A room fit for a party, 45 sqm — the most room to spread out and settle in, with a lounge area kept apart from the bed and a jacuzzi in the bathroom.',
     specs: [
       { icon: 'm²', label: '45 sqm' },
-      { icon: 'bed', label: 'king bed' },
-      { icon: '5', label: 'sleeps 5' },
-      { icon: '~', label: 'lounge area and jacuzzi' }
+      { icon: 'bed', label: 'King bed' },
+      { icon: '5', label: 'Sleeps 5' },
+      { icon: '~', label: 'Lounge area and jacuzzi' }
     ],
     amenities: [
-      { icon: 'wifi', label: 'free high-speed wifi' },
-      { icon: 'ac', label: 'air conditioning' },
-      { icon: 'tv', label: 'smart tv' },
-      { icon: 'bar', label: 'minibar & lounge' }
+      { icon: 'wifi', label: 'Free high-speed WiFi' },
+      { icon: 'ac', label: 'Air conditioning' },
+      { icon: 'tv', label: 'Smart TV' },
+      { icon: 'bar', label: 'Minibar & Lounge' }
     ]
   }
 };
@@ -778,7 +778,7 @@ function updateRoomContent(roomKey) {
     photoEl.alt = room.photoAlt;
   }
   if (blurbEl) blurbEl.textContent = room.blurb;
-  if (ctaTitleEl) ctaTitleEl.textContent = 'book: ' + room.name;
+  if (ctaTitleEl) ctaTitleEl.textContent = 'Book: ' + room.name;
 
   const thumbEls = document.querySelectorAll('.js-room-thumb');
   if (thumbEls.length && room.thumbs) {
