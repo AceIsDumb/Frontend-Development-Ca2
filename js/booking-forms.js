@@ -543,7 +543,7 @@ function updateRoomContent(roomKey) {
     amenitiesEl.textContent = '';
     room.amenities.forEach((amenity) => {
       const wrap = document.createElement('div');
-      wrap.className = 'bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3';
+      wrap.className = 'card-hover bg-surface border border-border rounded-lg px-4 py-3 flex items-center gap-3';
 
       const iconBox = document.createElement('div');
       iconBox.className = 'w-8 h-8 rounded-full bg-navytint text-navy text-xs flex items-center justify-center font-semibold shrink-0';
