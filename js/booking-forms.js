@@ -130,7 +130,7 @@ const PACKAGES = {
   'week-or-more': { name: 'A week, maybe more?', rate: 125 },
   'offseason-tranquility': { name: 'Off-season Tranquility', rate: 165 },
   'two-rooms-one-price': { name: 'Two rooms for the price of one', rate: 270 },
-  'book-early-pay-less': { name: 'book early, pay less', rate: 135 }
+  'book-early-pay-less': { name: 'Book early, pay less', rate: 135 }
 };
 
 const MS_PER_NIGHT = 1000 * 60 * 60 * 24;
